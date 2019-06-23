@@ -15,22 +15,12 @@ namespace FieldManager.Controllers
             return View();
         }
 
-        public IActionResult About()
+        // GET: /Home/Relatorios - Home porque é o Home Controller
+        public IActionResult Relatorios()
         {
-            ViewData["Message"] = "Your application description page.";
+            // Isso é inserido na página
+            ViewData["Message"] = "Aqui vão aparecer os dados guardados no BD";
 
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
             return View();
         }
 
