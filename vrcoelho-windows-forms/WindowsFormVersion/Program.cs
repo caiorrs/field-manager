@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using WindowsFormVersion;
 
 
-using  WindowsFormVersion.API;
+using WindowsFormVersion.API;
 
 namespace WindowsFormVersion
 {
@@ -98,32 +98,29 @@ namespace WindowsFormVersion
         {
             //testStuff();
             //return;
-                        // aqui estariamos instanciando cada subsistema
+            // aqui estariamos instanciando cada subsistema
 
             Sistema_de_Cobertura.Controle.Controlador cobertura = new Sistema_de_Cobertura.Controle.Controlador();
-            cobertura.setup();
-            Console.WriteLine("instanciou cobertura");
 
             Sistema_de_Corte.Controle.Controlador corte = new Sistema_de_Corte.Controle.Controlador();
-            corte.setup();
-            Console.WriteLine("instanciou corte");
 
             Sistema_de_Irrigacao.Controle.Controlador irrigacao = new Sistema_de_Irrigacao.Controle.Controlador(cobertura);
-            irrigacao.setup();
-            Console.WriteLine("instanciou irrigacao");
 
+
+            Servidor_Central.Gerenciador gerenciador = new Servidor_Central.Gerenciador(cobertura);
+            gerenciador.setup();
+            corte.setup();
+            irrigacao.setup();
+            cobertura.setup();
 
             Thread thr = new Thread(new ThreadStart(Natureza.Tempo.Instance.passTime));
             thr.Start();
             //mando o tempo rodar
-
 
             // isso seria o simulador v
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Simulador());
         }
-
-
     }
 }

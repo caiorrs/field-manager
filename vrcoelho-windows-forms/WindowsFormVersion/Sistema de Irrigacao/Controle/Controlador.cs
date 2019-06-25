@@ -44,6 +44,7 @@ namespace WindowsFormVersion.Sistema_de_Irrigacao.Controle
 
             Thread thr = new Thread(new ThreadStart(m.loop));
             thr.Start();
+            Console.WriteLine("instanciou irrigacao");
         }
     }
 }

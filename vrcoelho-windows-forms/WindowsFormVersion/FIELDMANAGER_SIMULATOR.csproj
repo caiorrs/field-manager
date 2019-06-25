@@ -67,6 +67,7 @@
     <Compile Include="Business\Agendamento.cs" />
     <Compile Include="Natureza\Natureza.cs" />
     <Compile Include="Servidor Central\Gerenciador.cs" />
+    <Compile Include="Servidor Central\Sistema de Previsão do Tempo\PrevisorDoTempo.cs" />
     <Compile Include="Simulador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +89,7 @@
     <Compile Include="Sistema de Irrigacao\Controle\Controlador.cs" />
     <Compile Include="Sistema de Irrigacao\iIrrigacao.cs" />
     <Compile Include="Sistema de Irrigacao\Monitoramento\Monitorador.cs" />
+    <Compile Include="iSistema.cs" />
     <EmbeddedResource Include="Simulador.resx">
       <DependentUpon>Simulador.cs</DependentUpon>
     </EmbeddedResource>

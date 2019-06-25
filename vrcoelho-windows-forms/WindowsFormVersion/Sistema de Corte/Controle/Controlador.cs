@@ -28,7 +28,7 @@ namespace WindowsFormVersion.Sistema_de_Corte.Controle
 
             Thread thr = new Thread(new ThreadStart(m.loop));
             thr.Start();
-
+            Console.WriteLine("instanciou corte");            
         }
     }
 }

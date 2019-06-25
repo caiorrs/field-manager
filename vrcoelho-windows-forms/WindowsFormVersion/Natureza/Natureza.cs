@@ -29,9 +29,12 @@ namespace WindowsFormVersion.Natureza
     public sealed class Tempo
     {
         private static readonly Tempo instance = new Tempo();
+        public int velocidadeTempo { get; } //em segundos
+
         private Tempo()
         {
             this.Now = DateTime.Today;
+            this.velocidadeTempo = 2;
         }
 
         public static Tempo Instance
@@ -56,11 +59,34 @@ namespace WindowsFormVersion.Natureza
                 DateTime Temp = Now;
                 Temp = Temp.AddHours(1);
                 this.Now = Temp;
-                Thread.Sleep(500); //a cada 3 segundos passa uma hora...
+                Thread.Sleep(1000 * this.velocidadeTempo); 
                 Console.WriteLine("tempo agora: " + Now.ToString());
             }
         }
 
+    }
+
+    public sealed class Clima
+    {
+        private static readonly Clima instance = new Clima();
+        private Clima() {
+            this.chuva = false;
+        }
+
+        private bool chuva;
+
+        public static Clima Instance
+        {
+            get
+            {
+                return instance;
+            }
+        }
+
+        public bool vaiChover()
+        {
+            return this.chuva;
+        }
     }
 
 }
