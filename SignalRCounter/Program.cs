@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
@@ -12,17 +13,14 @@ namespace SignalRCounter
 {
     public class Program
     {
-        public readonly static System.Timers.Timer aTimer = new System.Timers.Timer();
-        public static System.Timers.ElapsedEventHandler aLastHandler;
+        public static Thread aThread;
 
         public static void Main(string[] args)
         {
-            aTimer.Interval = 1000;
-            aTimer.AutoReset = true;
-            aTimer.Enabled = true;
-            aTimer.Elapsed += aLastHandler;
-
+            aThread = new Thread(BackgroundThread.MainLoop);
+            aThread.Start();
             CreateWebHostBuilder(args).Build().Run();
+            BackgroundThread.StopThread();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

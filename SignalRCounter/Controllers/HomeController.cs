@@ -17,14 +17,7 @@ namespace SignalRCounter.Controllers
 
         public HomeController(IHubContext<CounterHub> hubcontext)
         {
-            //Create do controller
-            //Pega o CounterHub
-            HubContext = hubcontext;
-            //Cria um novo handler para o evento de timer e remove o antigo se houver
-            System.Timers.ElapsedEventHandler aHandler = (sender, e) => { this.HubContext.Clients.All.SendAsync("ReceiveMessage", aNumber.ToString()); aNumber++; };
-            Program.aTimer.Elapsed -= Program.aLastHandler;
-            Program.aTimer.Elapsed += aHandler;
-            Program.aLastHandler = aHandler;
+            BackgroundThread.SetHub(hubcontext);
         }
 
         private IHubContext<CounterHub> HubContext
