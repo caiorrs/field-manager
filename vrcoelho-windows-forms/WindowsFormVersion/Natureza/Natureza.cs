@@ -56,7 +56,7 @@ namespace WindowsFormVersion.Natureza
                 DateTime Temp = Now;
                 Temp = Temp.AddHours(1);
                 this.Now = Temp;
-                Thread.Sleep(2000); //a cada 3 segundos passa uma hora...
+                Thread.Sleep(500); //a cada 3 segundos passa uma hora...
                 Console.WriteLine("tempo agora: " + Now.ToString());
             }
         }

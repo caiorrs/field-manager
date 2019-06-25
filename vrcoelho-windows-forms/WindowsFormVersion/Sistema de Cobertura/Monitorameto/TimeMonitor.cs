@@ -22,6 +22,11 @@ namespace WindowsFormVersion.Sistema_de_Cobertura.Monitorameto
         {
             while (true)
             {
+                if (q.Count == 0)
+                {
+                    Console.WriteLine("fim do agendamento");
+                        break;
+                }
 
                 Business.Agendamento nextAgendamento = q.Dequeue();
                 int nexHour = nextAgendamento.horaDoDia;
@@ -32,7 +37,7 @@ namespace WindowsFormVersion.Sistema_de_Cobertura.Monitorameto
                 while(horaAgora != nexHour)
                 {
                     horaAgora = Natureza.Tempo.Instance.HoraDoDia();
-                    Thread.Sleep(1000);
+                    Thread.Sleep(100);
                 }
 
                 //se saiu do loop eh pq ta na hora de fazer o negocio
