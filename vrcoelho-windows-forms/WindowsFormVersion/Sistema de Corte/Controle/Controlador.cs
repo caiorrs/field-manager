@@ -13,7 +13,7 @@ namespace WindowsFormVersion.Sistema_de_Corte.Controle
     class Controlador
     {
         Cortador cortador;
-      public  void setup()
+        public  void setup()
         {
 
             //crio classe q fica monitorando a natureza

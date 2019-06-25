@@ -33,8 +33,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.SelfHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.SelfHost.5.2.7\lib\net45\System.Web.Http.SelfHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,7 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\Product.cs" />
+    <Compile Include="API\ProductsController.cs" />
+    <Compile Include="API\Runner.cs" />
+    <Compile Include="Business\Agendamento.cs" />
     <Compile Include="Natureza\Natureza.cs" />
+    <Compile Include="Servidor Central\Gerenciador.cs" />
     <Compile Include="Simulador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,11 +75,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sistema de Cobertura\Controle\Cobertura.cs" />
+    <Compile Include="Sistema de Cobertura\Controle\Controlador.cs" />
+    <Compile Include="Sistema de Cobertura\iIncidencia.cs" />
+    <Compile Include="Sistema de Cobertura\Monitorameto\TimeMonitor.cs" />
+    <Compile Include="Sistema de Corte\iCorte.cs" />
+    <Compile Include="Sistema de Cobertura\iIrrigacaoToCobertura.cs" />
     <Compile Include="Sistema de Corte\Controle\Controlador.cs" />
     <Compile Include="Sistema de Corte\Controle\Cortador.cs" />
     <Compile Include="Sistema de Corte\Monitoramento\Monitorador.cs" />
     <Compile Include="Sistema de Irrigacao\Controle\Irrigador.cs" />
     <Compile Include="Sistema de Irrigacao\Controle\Controlador.cs" />
+    <Compile Include="Sistema de Irrigacao\iIrrigacao.cs" />
     <Compile Include="Sistema de Irrigacao\Monitoramento\Monitorador.cs" />
     <EmbeddedResource Include="Simulador.resx">
       <DependentUpon>Simulador.cs</DependentUpon>
@@ -73,6 +100,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

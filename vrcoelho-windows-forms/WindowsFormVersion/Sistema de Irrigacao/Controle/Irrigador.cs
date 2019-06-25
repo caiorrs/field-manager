@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace WindowsFormVersion.Sistema_de_Irrigacao.Controle
 {
+
+
     class Irrigador
     {
         public float UmidadeIdeal { get; set; }

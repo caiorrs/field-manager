@@ -8,14 +8,23 @@ using System.Threading;
 
 using WindowsFormVersion.Sistema_de_Irrigacao.Monitoramento;
 
+using WindowsFormVersion.Sistema_de_Cobertura;
+
 namespace WindowsFormVersion.Sistema_de_Irrigacao.Controle
 {
     class Controlador
     {
         Irrigador irrigador;
+
+        iIrrigacaoToCobertura iIrriToCob;
+
+        public Controlador(iIrrigacaoToCobertura iIrriToCob)
+        {
+            //precisa receber a referencia no startup
+            this.iIrriToCob = iIrriToCob;
+        }
         public void setup()
         {
-
             //crio classe q fica monitorando a natureza
             //digamos que tu receba isso do usuario
 
@@ -28,9 +37,10 @@ namespace WindowsFormVersion.Sistema_de_Irrigacao.Controle
             irrigador = new Irrigador();
             irrigador.UmidadeIdeal = idealUmidade;
 
-            Action callback = irrigador.Irrigar;
+            Action callbackLOW = irrigador.Irrigar;
+            Action callbackHIGH = iIrriToCob.umidadeAcimaLimite;
 
-            Monitorador m = new Monitorador(callback, minUmidade);
+            Monitorador m = new Monitorador(callbackLOW, callbackHIGH, minUmidade, maxUmidade);
 
             Thread thr = new Thread(new ThreadStart(m.loop));
             thr.Start();
