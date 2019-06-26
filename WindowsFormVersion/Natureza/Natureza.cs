@@ -81,10 +81,12 @@ namespace WindowsFormVersion.Natureza
         private static readonly Clima instance = new Clima();
         private Clima()
         {
-            this.chuva = false;
+            this.chuvaAgora = false;
+            this.chuvaFuturo = false;
         }
 
-        private bool chuva;
+        private bool chuvaAgora;
+        private bool chuvaFuturo;
 
         public static Clima Instance
         {
@@ -94,9 +96,14 @@ namespace WindowsFormVersion.Natureza
             }
         }
 
+        public bool estaChovendo()
+        {
+            return this.chuvaAgora;
+        }
+
         public bool vaiChover()
         {
-            return this.chuva;
+            return this.chuvaAgora;
         }
     }
 

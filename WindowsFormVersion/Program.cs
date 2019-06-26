@@ -111,9 +111,9 @@ namespace WindowsFormVersion
 
             Servidor_Central.Gerenciador gerenciador = new Servidor_Central.Gerenciador(cobertura, corte);
             corte.setup();
-            gerenciador.setup();
-            irrigacao.setup();
             cobertura.setup();
+            irrigacao.setup();
+            gerenciador.setup();
 
             Thread thr = new Thread(new ThreadStart(Natureza.Tempo.Instance.passTime));
             thr.Start();

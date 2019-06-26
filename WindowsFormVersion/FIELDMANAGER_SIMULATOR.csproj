@@ -92,6 +92,7 @@
     <Compile Include="Sistema de Cobertura\iIrrigacaoToCobertura.cs" />
     <Compile Include="Sistema de Corte\Controle\Controlador.cs" />
     <Compile Include="Sistema de Corte\Controle\Cortador.cs" />
+    <Compile Include="Sistema de Corte\LogCorte.cs" />
     <Compile Include="Sistema de Corte\Monitoramento\Monitorador.cs" />
     <Compile Include="Sistema de Corte\Monitoramento\TimeMonitor.cs" />
     <Compile Include="Sistema de Irrigacao\Controle\Irrigador.cs" />

@@ -11,11 +11,13 @@ namespace WindowsFormVersion.Sistema_de_Cobertura.Monitorameto
     {
         Action<float> callback; // funcao da cobertura que seta a abertura
         Queue<Business.Agendamento> q;
+        int CONTINUE;
 
-        public TimeMonitor(Action<float> callback, Queue<Business.Agendamento> q)
+        public TimeMonitor(Action<float> callback, Queue<Business.Agendamento> q, ref int CONTINUE)
         {
             this.callback = callback;
             this.q = q;
+            this.CONTINUE = CONTINUE;
         }
 
         public void loop()
@@ -33,6 +35,8 @@ namespace WindowsFormVersion.Sistema_de_Cobertura.Monitorameto
                 float abertura = nextAgendamento.porcentagemAberturaCobertura;
 
                 int horaAgora = -1;
+
+                Console.WriteLine("///////////////////////continue agora vale {0}", CONTINUE);
 
                 while((!Program.Terminated) && (horaAgora != nexHour))
                 {
