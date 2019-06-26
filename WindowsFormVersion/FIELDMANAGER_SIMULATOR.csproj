@@ -73,6 +73,12 @@
     <Compile Include="Persistencia de Dados\DataSaver.cs" />
     <Compile Include="Servidor Central\Gerenciador.cs" />
     <Compile Include="Servidor Central\Sistema de Previsão do Tempo\PrevisorDoTempo.cs" />
+    <Compile Include="Servidor Central\TESTEUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servidor Central\TESTEUI.Designer.cs">
+      <DependentUpon>TESTEUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Simulador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     <Compile Include="iSistema.cs" />
     <EmbeddedResource Include="Configuracoes.resx">
       <DependentUpon>Configuracoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servidor Central\TESTEUI.resx">
+      <DependentUpon>TESTEUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Simulador.resx">
       <DependentUpon>Simulador.cs</DependentUpon>

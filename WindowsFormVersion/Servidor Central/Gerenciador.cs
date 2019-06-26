@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace WindowsFormVersion.Servidor_Central
 {
@@ -25,8 +26,21 @@ namespace WindowsFormVersion.Servidor_Central
             this.sistemaCorte = sistemaCorte;
         }
 
+        private void startUI()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            TESTEUI ui = new TESTEUI();
+            ui.ShowDialog();
+        }
+
         public void setup()
         {
+
+            Thread UIthrd = new Thread(new ThreadStart(this.startUI));
+            UIthrd.Start();            
+
             int horaAgora = Natureza.Tempo.Instance.HoraDoDia();
             sistemaIncidencia.setCronograma(this.createCronogramaHorasSol(horaAgora));
 

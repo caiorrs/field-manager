@@ -117,8 +117,8 @@ namespace WindowsFormVersion
             //mando o tempo rodar
 
             // isso seria o simulador v
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Simulador());
             Program.Terminated = true;
         }
