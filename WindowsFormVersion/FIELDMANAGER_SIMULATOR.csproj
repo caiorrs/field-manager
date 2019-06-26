@@ -98,6 +98,7 @@
     <Compile Include="Sistema de Irrigacao\Controle\Irrigador.cs" />
     <Compile Include="Sistema de Irrigacao\Controle\Controlador.cs" />
     <Compile Include="Sistema de Irrigacao\iIrrigacao.cs" />
+    <Compile Include="Sistema de Irrigacao\Monitoramento\Interface1.cs" />
     <Compile Include="Sistema de Irrigacao\Monitoramento\Monitorador.cs" />
     <Compile Include="iSistema.cs" />
     <EmbeddedResource Include="Configuracoes.resx">

@@ -14,13 +14,11 @@ namespace WindowsFormVersion.Sistema_de_Corte.Controle
     class Controlador: iCorte
     {
         Cortador cortador;
-
         public void agendarCorte(Agendamento corteAgendado)
-        {
-            cortador.alturaLamina = corteAgendado.value; //nesse caso eh a altura
-
+        {                                            
             Action cortarGrama = cortador.Cortar;
-            TimeMonitor t = new TimeMonitor(cortarGrama, corteAgendado.horaDoDia);
+            Action<float> setAlturaLamina = cortador.setAlturaLamina;
+            TimeMonitor t = new TimeMonitor(cortarGrama, setAlturaLamina, corteAgendado);
             Thread thr = new Thread(new ThreadStart(t.loop));
             thr.Start();
             Console.WriteLine("iniciou thread para realizar o corte no horario agendado");
@@ -28,11 +26,10 @@ namespace WindowsFormVersion.Sistema_de_Corte.Controle
 
         public  void setup()
         {
-
             //crio classe q fica monitorando a natureza
             float alturaPreDefinida = 10; //digamos que tu receba isso do usuario
             cortador = new Cortador();
-            cortador.alturaLamina = alturaPreDefinida;
+            cortador.setAlturaLamina(alturaPreDefinida);
 
             Action callback = cortador.Cortar;
 
