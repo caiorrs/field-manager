@@ -21,7 +21,7 @@ namespace WindowsFormVersion.Sistema_de_Corte.Monitoramento
 
         public void loop()
         {
-            while (true)
+            while (!Program.Terminated)
             {
                 float alturaAtual = Natureza.Grama.Instance.altura;
                 if (alturaAtual > valorLimite)

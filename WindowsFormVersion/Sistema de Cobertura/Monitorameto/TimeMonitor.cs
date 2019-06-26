@@ -20,7 +20,7 @@ namespace WindowsFormVersion.Sistema_de_Cobertura.Monitorameto
 
         public void loop()
         {
-            while (true)
+            while (!Program.Terminated)
             {
                 if (q.Count == 0)
                 {
@@ -34,7 +34,7 @@ namespace WindowsFormVersion.Sistema_de_Cobertura.Monitorameto
 
                 int horaAgora = -1;
 
-                while(horaAgora != nexHour)
+                while((!Program.Terminated) && (horaAgora != nexHour))
                 {
                     horaAgora = Natureza.Tempo.Instance.HoraDoDia();
                     Thread.Sleep(100);

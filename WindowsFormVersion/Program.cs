@@ -14,6 +14,8 @@ namespace WindowsFormVersion
 {
     static class Program
     {
+
+        public static bool Terminated = false;
         /// <summary>
         /// Ponto de entrada principal para o aplicativo.
         /// </summary>
@@ -75,7 +77,7 @@ namespace WindowsFormVersion
 
             DateTime simulatedNow; // = Natureza.Tempo.Instance.Now;
             simulatedNow = thisDay;
-            while (true)
+            while (!Program.Terminated)
             {
                 //  simulatedNow = simulatedNow.AddHours(1);
                 simulatedNow = Natureza.Tempo.Instance.Now;
@@ -121,6 +123,7 @@ namespace WindowsFormVersion
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Simulador());
+            Program.Terminated = true;
         }
     }
 }

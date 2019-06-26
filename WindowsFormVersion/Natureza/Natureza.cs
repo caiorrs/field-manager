@@ -54,7 +54,7 @@ namespace WindowsFormVersion.Natureza
 
         public void passTime()
         {
-            while (true)
+            while (!Program.Terminated)
             {
                 DateTime Temp = Now;
                 Temp = Temp.AddHours(1);

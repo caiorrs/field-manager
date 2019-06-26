@@ -45,10 +45,10 @@ namespace WindowsFormVersion.Servidor_Central
   * e passa para os subsistemas
   * */
 
-            while (true)
+            while (!Program.Terminated)
             {
                 int horaAgora = -1;
-                while (horaAgora != 23)
+                while ((!Program.Terminated) && (horaAgora != 23))
                 {
                     horaAgora = Natureza.Tempo.Instance.HoraDoDia();
                     Thread.Sleep(100);
