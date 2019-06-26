@@ -36,6 +36,7 @@
             this.umidadeTrackBar = new System.Windows.Forms.TrackBar();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnConfigurar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -57,6 +58,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 1;
+            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // label1
             // 
@@ -117,11 +119,22 @@
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 1;
             // 
+            // btnConfigurar
+            // 
+            this.btnConfigurar.Location = new System.Drawing.Point(266, 248);
+            this.btnConfigurar.Name = "btnConfigurar";
+            this.btnConfigurar.Size = new System.Drawing.Size(75, 23);
+            this.btnConfigurar.TabIndex = 5;
+            this.btnConfigurar.Text = "Configurar";
+            this.btnConfigurar.UseVisualStyleBackColor = true;
+            this.btnConfigurar.Click += new System.EventHandler(this.BtnConfigurar_Click);
+            // 
             // Simulador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(606, 283);
+            this.Controls.Add(this.btnConfigurar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Simulador";
@@ -147,6 +160,7 @@
         private System.Windows.Forms.TrackBar umidadeTrackBar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btnConfigurar;
     }
 }
 

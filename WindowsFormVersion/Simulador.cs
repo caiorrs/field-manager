@@ -22,6 +22,11 @@ namespace WindowsFormVersion
             main_();
         }
 
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
         public void main_()
         {
             Natureza.Grama.Instance.altura = 10;
@@ -31,7 +36,7 @@ namespace WindowsFormVersion
         {
             float value = this.trackBar1.Value;
             Natureza.Grama.Instance.altura = value;
-            this.textBox1.Text = value.ToString();           
+            this.textBox1.Text = value.ToString();
         }
 
         private void UmidadeTrackBar_ValueChanged(object sender, EventArgs e)
@@ -39,5 +44,15 @@ namespace WindowsFormVersion
             Natureza.Grama.Instance.umidade = this.umidadeTrackBar.Value;
         }
 
+        private void BtnConfigurar_Click(object sender, EventArgs e)
+        {
+            
+            new WindowsFormVersion.Configuracoes().Show();
+        }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
