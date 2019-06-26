@@ -18,6 +18,9 @@ namespace WindowsFormVersion.Sistema_de_Corte.Controle
 
             //TO-DO
             //aqui além de cortar a grama, deve fazer a parte de persistir os logs?
+            LogCorte log = new LogCorte(Natureza.Tempo.Instance.Now, alturaLamina);
+
+            //NATANAEL
         }
     }
 }

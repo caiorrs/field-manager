@@ -99,5 +99,10 @@ namespace WindowsFormVersion
             listaGramas.Items.Add("Esmeralda");
             listaGramas.Items.Add("Bermudas");
         }
+
+        private void Configuracoes_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
