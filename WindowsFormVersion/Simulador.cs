@@ -46,7 +46,6 @@ namespace WindowsFormVersion
 
         private void BtnConfigurar_Click(object sender, EventArgs e)
         {
-            
             new WindowsFormVersion.Configuracoes().Show();
         }
 

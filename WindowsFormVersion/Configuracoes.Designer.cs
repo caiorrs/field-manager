@@ -152,7 +152,7 @@ namespace WindowsFormVersion
             // valorAlturaCorte
             // 
             this.valorAlturaCorte.AutoSize = true;
-            this.valorAlturaCorte.Location = new System.Drawing.Point(591, 235);
+            this.valorAlturaCorte.Location = new System.Drawing.Point(592, 195);
             this.valorAlturaCorte.Name = "valorAlturaCorte";
             this.valorAlturaCorte.Size = new System.Drawing.Size(10, 13);
             this.valorAlturaCorte.TabIndex = 11;
@@ -172,7 +172,7 @@ namespace WindowsFormVersion
             // listaCidades
             // 
             this.listaCidades.FormattingEnabled = true;
-            this.listaCidades.Location = new System.Drawing.Point(524, 239);
+            this.listaCidades.Location = new System.Drawing.Point(524, 249);
             this.listaCidades.Name = "listaCidades";
             this.listaCidades.Size = new System.Drawing.Size(121, 21);
             this.listaCidades.TabIndex = 13;
@@ -190,7 +190,7 @@ namespace WindowsFormVersion
             // labelCidade
             // 
             this.labelCidade.AutoSize = true;
-            this.labelCidade.Location = new System.Drawing.Point(566, 212);
+            this.labelCidade.Location = new System.Drawing.Point(562, 224);
             this.labelCidade.Name = "labelCidade";
             this.labelCidade.Size = new System.Drawing.Size(40, 13);
             this.labelCidade.TabIndex = 15;
