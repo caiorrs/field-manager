@@ -7,9 +7,6 @@ using System.Windows.Forms;
 
 using WindowsFormVersion;
 
-
-using WindowsFormVersion.API;
-
 namespace WindowsFormVersion
 {
     static class Program
