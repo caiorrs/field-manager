@@ -17,10 +17,10 @@ namespace WindowsFormVersion.Sistema_de_Corte.Controle
 
         public void agendarCorte(Agendamento corteAgendado)
         {
-            cortador.alturaLamina = corteAgendado.porcentagemAberturaCobertura; //nesse caso eh a altura
+            cortador.alturaLamina = corteAgendado.value; //nesse caso eh a altura
 
-            Action callback = cortador.Cortar;
-            TimeMonitor t = new TimeMonitor(callback, corteAgendado.horaDoDia);
+            Action cortarGrama = cortador.Cortar;
+            TimeMonitor t = new TimeMonitor(cortarGrama, corteAgendado.horaDoDia);
             Thread thr = new Thread(new ThreadStart(t.loop));
             thr.Start();
             Console.WriteLine("iniciou thread para realizar o corte no horario agendado");

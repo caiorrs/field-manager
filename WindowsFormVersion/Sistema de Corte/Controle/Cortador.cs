@@ -8,7 +8,12 @@ namespace WindowsFormVersion.Sistema_de_Corte.Controle
 {
     class Cortador
     {
-        public float alturaLamina { get; set;}
+        private float alturaLamina;
+
+        public void setAlturaLamina(float altura)
+        {
+            this.alturaLamina = altura;
+        }
 
         public void Cortar()
         {

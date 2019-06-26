@@ -30,17 +30,18 @@ namespace WindowsFormVersion.Servidor_Central
             int horaAgora = Natureza.Tempo.Instance.HoraDoDia();
             sistemaIncidencia.setCronograma(this.createCronogramaHorasSol(horaAgora));
 
-            Thread thr = new Thread(new ThreadStart(this.generateCronogramaSistemaCoberturaParaSempre));
+            Thread thr = new Thread(new ThreadStart(this.configurarSubSistemas));
             thr.Start();
             Console.WriteLine("instanciou servidor central");
 
             //TO-DO nao vai ser assim mas tenho q ver como vou receber os agendamentos
+            // no caso tenho q receber da ui...
             float alturaGrama = 11; //mm
-            Business.Agendamento a = new Business.Agendamento(7,alturaGrama);
+            Business.Agendamento a = new Business.Agendamento(7, alturaGrama);
             sistemaCorte.agendarCorte(a);
         }
 
-        private void generateCronogramaSistemaCoberturaParaSempre()
+        private void configurarSubSistemas()
         {
 
             /*
@@ -51,7 +52,7 @@ namespace WindowsFormVersion.Servidor_Central
   * e todo dia as 23h ela cria os cronogramas 
   * e passa para os subsistemas
   * */
-              while (!Program.Terminated)
+            while (!Program.Terminated)
             {
                 int horaAgora = -1;
                 while ((!Program.Terminated) && (horaAgora != 23))
@@ -60,15 +61,25 @@ namespace WindowsFormVersion.Servidor_Central
                     Natureza.Tempo.Instance.inserePequenoDelay();
                 }
                 //ja sao 23 agora
-                this.sistemaIncidencia.setCronograma(this.createCronogramaHorasSol(0));
+                this.configurarSistemaCobertura();
 
                 Natureza.Tempo.Instance.passaDuasHoras();
             }
         }
 
-        private Queue<Business.Agendamento> createCronogramaHorasSol(int startHour)
+        private void configurarSistemaIrrigacao()
         {
-            if (startHour > 24 || startHour < 0)
+
+        }
+
+        private void configurarSistemaCobertura()
+        {
+            this.sistemaIncidencia.setCronograma(this.createCronogramaHorasSol(0));
+        }
+
+        private Queue<Business.Agendamento> createCronogramaHorasSol(int horaInicial)
+        {
+            if (horaInicial > 24 || horaInicial < 0)
                 throw new Exception("hora invalida");
 
             DateTime today = Natureza.Tempo.Instance.Now;
@@ -76,7 +87,7 @@ namespace WindowsFormVersion.Servidor_Central
             Queue<Business.Agendamento> q = new Queue<Business.Agendamento>();
             if (prev.iraChover())
             {
-                for (int i = startHour; i < 24; i++)
+                for (int i = horaInicial; i < 24; i++)
                 {
                     //fake total
                     float p = 30; //como vai chover matenho a abertura em 30% para nao molhar demais a grama
@@ -86,7 +97,7 @@ namespace WindowsFormVersion.Servidor_Central
             }
             else
             {
-                for (int i = startHour; i < 24; i++)
+                for (int i = horaInicial; i < 24; i++)
                 {
                     //fake total
                     float p;

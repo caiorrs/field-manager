@@ -31,13 +31,10 @@ namespace WindowsFormVersion.Sistema_de_Cobertura.Controle
             // float alturaPreDefinida = 10; //digamos que tu receba isso do usuario
             cobertura = new Cobertura();
 
-
-
-
             Console.WriteLine("instanciou cobertura");
         }
 
-        // vou ter o agendamento... sou eu que fi
+        // vou ter o agendamento... sou eu que fiz
         public void umidadeAcimaLimite()
         {
             /*

@@ -24,6 +24,7 @@ namespace WindowsFormVersion.Natureza
                 return instance;
             }
         }
+
     }
 
     public sealed class Tempo
