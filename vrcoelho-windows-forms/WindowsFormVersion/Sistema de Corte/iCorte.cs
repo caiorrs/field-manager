@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormVersion.Sistema_de_Corte
 {
-    interface iCorte
+    interface iCorte: iSistema
     {
         /*
          * 
