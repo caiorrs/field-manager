@@ -35,7 +35,7 @@ namespace WindowsFormVersion.Sistema_de_Irrigacao.Monitoramento
 
 
                 //TO-DO como 
-                
+
                 if (umidadeAtual > umidadeMaxima)
                 {
                     //ai tenho que mandar uma mensagem para o sistema de cobertura
@@ -43,12 +43,12 @@ namespace WindowsFormVersion.Sistema_de_Irrigacao.Monitoramento
                     Console.WriteLine("a umidade estava acima do maximo");
                     callbackHIGH();
                 }
-                
 
-                    string s = "Umidade atual da grama:" + umidadeAtual.ToString();
-                Console.WriteLine(s);                
 
-                Thread.Sleep(1000);
+                string s = "Umidade atual da grama:" + umidadeAtual.ToString();
+                Console.WriteLine(s);
+
+                Natureza.Tempo.Instance.inserePequenoDelay();
             }
         }
     }

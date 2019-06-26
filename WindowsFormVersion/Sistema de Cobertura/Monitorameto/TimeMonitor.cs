@@ -37,8 +37,10 @@ namespace WindowsFormVersion.Sistema_de_Cobertura.Monitorameto
                 while(horaAgora != nexHour)
                 {
                     horaAgora = Natureza.Tempo.Instance.HoraDoDia();
-                    Thread.Sleep(100);
+                    Natureza.Tempo.Instance.inserePequenoDelay();
                 }
+
+                //  to-do POSSIVEL BUG
 
                 //se saiu do loop eh pq ta na hora de fazer o negocio
                 callback(abertura);              

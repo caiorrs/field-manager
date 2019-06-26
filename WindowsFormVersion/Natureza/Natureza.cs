@@ -59,9 +59,14 @@ namespace WindowsFormVersion.Natureza
                 DateTime Temp = Now;
                 Temp = Temp.AddHours(1);
                 this.Now = Temp;
-                Thread.Sleep(1000 * this.velocidadeTempo); 
+                Thread.Sleep(1000 * this.velocidadeTempo);
                 Console.WriteLine("tempo agora: " + Now.ToString());
             }
+        }
+
+        public void inserePequenoDelay()
+        {
+            Thread.Sleep(this.velocidadeTempo * 1000 / 5);
         }
 
     }
@@ -69,7 +74,8 @@ namespace WindowsFormVersion.Natureza
     public sealed class Clima
     {
         private static readonly Clima instance = new Clima();
-        private Clima() {
+        private Clima()
+        {
             this.chuva = false;
         }
 
