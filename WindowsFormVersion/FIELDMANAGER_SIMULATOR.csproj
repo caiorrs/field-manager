@@ -72,6 +72,7 @@
       <DependentUpon>Configuracoes.cs</DependentUpon>
     </Compile>
     <Compile Include="Natureza\Natureza.cs" />
+    <Compile Include="Persistencia de Dados\DataSaver.cs" />
     <Compile Include="Servidor Central\Gerenciador.cs" />
     <Compile Include="Servidor Central\Sistema de Previsão do Tempo\PrevisorDoTempo.cs" />
     <Compile Include="Simulador.cs">
