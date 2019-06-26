@@ -24,7 +24,7 @@ namespace WindowsFormVersion.Sistema_de_Irrigacao.Monitoramento
         }
         public void loop()
         {
-            while (true)
+            while (!Program.Terminated)
             {
                 float umidadeAtual = Natureza.Grama.Instance.umidade;
                 if (umidadeAtual < umidadeMinima)

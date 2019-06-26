@@ -51,10 +51,10 @@ namespace WindowsFormVersion.Servidor_Central
   * e todo dia as 23h ela cria os cronogramas 
   * e passa para os subsistemas
   * */
-              while (true)
+              while (!Program.Terminated)
             {
                 int horaAgora = -1;
-                while (horaAgora != 23)
+                while ((!Program.Terminated) && (horaAgora != 23))
                 {
                     horaAgora = Natureza.Tempo.Instance.HoraDoDia();
                     Natureza.Tempo.Instance.inserePequenoDelay();
@@ -63,7 +63,6 @@ namespace WindowsFormVersion.Servidor_Central
                 this.sistemaIncidencia.setCronograma(this.createCronogramaHorasSol(0));
 
                 Natureza.Tempo.Instance.passaDuasHoras();
-
             }
         }
 

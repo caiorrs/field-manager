@@ -65,7 +65,14 @@
     <Compile Include="API\ProductsController.cs" />
     <Compile Include="API\Runner.cs" />
     <Compile Include="Business\Agendamento.cs" />
+    <Compile Include="Configuracoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracoes.Designer.cs">
+      <DependentUpon>Configuracoes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Natureza\Natureza.cs" />
+    <Compile Include="Persistencia de Dados\DataSaver.cs" />
     <Compile Include="Servidor Central\Gerenciador.cs" />
     <Compile Include="Servidor Central\Sistema de Previsão do Tempo\PrevisorDoTempo.cs" />
     <Compile Include="Simulador.cs">
@@ -91,6 +98,9 @@
     <Compile Include="Sistema de Irrigacao\iIrrigacao.cs" />
     <Compile Include="Sistema de Irrigacao\Monitoramento\Monitorador.cs" />
     <Compile Include="iSistema.cs" />
+    <EmbeddedResource Include="Configuracoes.resx">
+      <DependentUpon>Configuracoes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Simulador.resx">
       <DependentUpon>Simulador.cs</DependentUpon>
     </EmbeddedResource>
