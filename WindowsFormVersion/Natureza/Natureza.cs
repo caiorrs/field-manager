@@ -69,6 +69,11 @@ namespace WindowsFormVersion.Natureza
             Thread.Sleep(this.velocidadeTempo * 1000 / 5);
         }
 
+        public void passaDuasHoras()
+        {
+            Thread.Sleep(this.velocidadeTempo * 1000 * 2);
+        }
+
     }
 
     public sealed class Clima

@@ -107,9 +107,9 @@ namespace WindowsFormVersion
             Sistema_de_Irrigacao.Controle.Controlador irrigacao = new Sistema_de_Irrigacao.Controle.Controlador(cobertura);
 
 
-            Servidor_Central.Gerenciador gerenciador = new Servidor_Central.Gerenciador(cobertura);
-            gerenciador.setup();
+            Servidor_Central.Gerenciador gerenciador = new Servidor_Central.Gerenciador(cobertura, corte);
             corte.setup();
+            gerenciador.setup();
             irrigacao.setup();
             cobertura.setup();
 

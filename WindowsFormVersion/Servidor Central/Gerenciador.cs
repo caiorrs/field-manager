@@ -17,10 +17,12 @@ namespace WindowsFormVersion.Servidor_Central
         //acredit oque seria setCronograma de iIncidencia
         // ponto de acesso para o 
         Sistema_de_Cobertura.iIncidencia sistemaIncidencia;
+        Sistema_de_Corte.iCorte sistemaCorte;
 
-        public Gerenciador(Sistema_de_Cobertura.iIncidencia sistemaIncidencia)
+        public Gerenciador(Sistema_de_Cobertura.iIncidencia sistemaIncidencia, Sistema_de_Corte.iCorte sistemaCorte)
         {
             this.sistemaIncidencia = sistemaIncidencia;
+            this.sistemaCorte = sistemaCorte;
         }
 
         public void setup()
@@ -31,6 +33,11 @@ namespace WindowsFormVersion.Servidor_Central
             Thread thr = new Thread(new ThreadStart(this.generateCronogramaSistemaCoberturaParaSempre));
             thr.Start();
             Console.WriteLine("instanciou servidor central");
+
+            //TO-DO nao vai ser assim mas tenho q ver como vou receber os agendamentos
+            float alturaGrama = 11; //mm
+            Business.Agendamento a = new Business.Agendamento(7,alturaGrama);
+            sistemaCorte.agendarCorte(a);
         }
 
         private void generateCronogramaSistemaCoberturaParaSempre()
@@ -44,17 +51,19 @@ namespace WindowsFormVersion.Servidor_Central
   * e todo dia as 23h ela cria os cronogramas 
   * e passa para os subsistemas
   * */
-
-            while (true)
+              while (true)
             {
                 int horaAgora = -1;
                 while (horaAgora != 23)
                 {
                     horaAgora = Natureza.Tempo.Instance.HoraDoDia();
-                    Thread.Sleep(100);
+                    Natureza.Tempo.Instance.inserePequenoDelay();
                 }
                 //ja sao 23 agora
                 this.sistemaIncidencia.setCronograma(this.createCronogramaHorasSol(0));
+
+                Natureza.Tempo.Instance.passaDuasHoras();
+
             }
         }
 
