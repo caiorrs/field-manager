@@ -14,6 +14,7 @@ namespace WindowsFormVersion.Natureza
     {
         private float _altura;
         private float _umidade;
+        private static Random rng = new Random();
         public float altura
         {
             get
@@ -47,8 +48,35 @@ namespace WindowsFormVersion.Natureza
             }
         }
 
+        public void TryToGrow()
+        {
+            if (rng.Next(0,100) >= 30)
+            {
+                altura = altura + ((float)rng.Next(10,60) * (float)0.01) ;
+            }
+        }
+
+        public void UpdateUmidade()
+        {
+            if (Natureza.Clima.Instance.estaChovendo())
+            {
+                umidade = umidade + ((float)rng.Next(1, 60) * (float)0.1);
+            }
+            else
+            {
+                if (rng.Next(0, 100) >= 30)
+                {
+                    umidade = umidade - ((float)rng.Next(10, 60) * (float)0.01);
+                }
+            }
+        }
+
         private static readonly Grama instance = new Grama();
-        private Grama() { }
+        private Grama()
+        {
+            altura = rng.Next(10, 30);
+            umidade = rng.Next(10, 80);
+        }
 
         public static Grama Instance
         {
@@ -96,6 +124,8 @@ namespace WindowsFormVersion.Natureza
                 if (Simulador.Instance != null)
                 {
                     Simulador.Instance.UpdateTempo(Now.ToString());
+                    Natureza.Grama.Instance.TryToGrow();
+                    Natureza.Grama.Instance.UpdateUmidade();
                 }
                 Thread.Sleep(1000 * this.velocidadeTempo);
                 Console.WriteLine("tempo agora: " + Now.ToString());
@@ -155,6 +185,11 @@ namespace WindowsFormVersion.Natureza
         public bool estaChovendo()
         {
             return this.chuvaAgora;
+        }
+
+        public void setChovendo(bool value)
+        {
+            chuvaAgora = value;
         }
 
         public bool vaiChover()

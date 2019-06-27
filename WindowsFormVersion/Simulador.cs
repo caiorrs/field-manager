@@ -35,36 +35,73 @@ namespace WindowsFormVersion
 
         public void main_()
         {
-            Natureza.Grama.Instance.altura = 10;
+        }
+
+        private void UpdateTrackBar(TrackBar tb, int value)
+        {
+            if (tb.InvokeRequired)
+            {
+                tb.BeginInvoke((MethodInvoker)delegate () { tb.Value = value; });
+            }
+            else
+            {
+                tb.Value = value;
+            }
+        }
+        private void UpdateLabel(Label lb, string value)
+        {
+            if (lb.InvokeRequired)
+            {
+                lb.BeginInvoke((MethodInvoker)delegate () { lb.Text = value; });
+            }
+            else
+            {
+                lb.Text = value;
+            }
+        }
+        private void UpdateTextBox(TextBox tbx, string value)
+        {
+            if (tbx.InvokeRequired)
+            {
+                tbx.BeginInvoke((MethodInvoker)delegate () { tbx.Text = value; });
+            }
+            else
+            {
+                tbx.Text = value;
+            }
+        }
+        private void UpdateCheckBox(CheckBox cbx, bool value)
+        {
+            if (cbx.InvokeRequired)
+            {
+                cbx.BeginInvoke((MethodInvoker)delegate () { cbx.Checked = value; });
+            }
+            else
+            {
+                cbx.Checked = value;
+            }
         }
 
         public void UpdateGramaSize(float size)
         {
-            trackBar1.Value = (int)Math.Floor(size);
-            textBox1.Text = size.ToString();
+            UpdateTrackBar(trackBar1, (int)Math.Floor(size));
+            UpdateTextBox(textBox1, size.ToString());
         }
 
         public void UpdateUmidade(float umi)
         {
-            umidadeTrackBar.Value = (int)Math.Floor(umi);
-            textBox2.Text = umi.ToString();
+            UpdateTrackBar(umidadeTrackBar, (int)Math.Floor(umi));
+            UpdateTextBox(textBox2, umi.ToString());
         }
 
         public void SetChovendo(bool value)
         {
-            checkBox1.Checked = value;
+            UpdateCheckBox(checkBox1, value);
         }
 
         public void UpdateTempo(string text)
         {
-            if (label3.InvokeRequired)
-            {
-                label3.BeginInvoke((MethodInvoker)delegate () { label3.Text = text; });
-            }
-            else
-            {
-                label3.Text = text; ;
-            }
+            UpdateLabel(label3, text);
         }
 
         private void TrackBar1_ValueChanged(object sender, EventArgs e)
@@ -93,6 +130,11 @@ namespace WindowsFormVersion
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            Natureza.Clima.Instance.setChovendo(checkBox1.Checked);
         }
     }
 }
