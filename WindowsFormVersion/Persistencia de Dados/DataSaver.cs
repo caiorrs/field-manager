@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.IO;
 
-namespace WindowsFormVersion
+namespace WindowsFormVersion.Persistencia_de_Dados
 {
     [CollectionDataContract]
     public class DataSaver<T> : List<T>
@@ -32,13 +28,26 @@ namespace WindowsFormVersion
 
             if (File.Exists(fName))
             {
-                FileStream fRead = new FileStream(fName, FileMode.Open);
-                DataContractSerializer xmlReader = new DataContractSerializer(typeof(DataSaver<T>));
-                DataSaver<T> newInstance = (DataSaver<T>)xmlReader.ReadObject(fRead);
-                fRead.Close();
+                DataSaver<T> newInstance = null;
                 this.Clear();
-                this.AddRange(newInstance);
-                newInstance = null;
+
+                try
+                {
+                    FileStream fRead = new FileStream(fName, FileMode.Open);
+                    DataContractSerializer xmlReader = new DataContractSerializer(typeof(DataSaver<T>));
+                    newInstance = (DataSaver<T>)xmlReader.ReadObject(fRead);
+                    fRead.Close();
+                }
+                catch
+                {
+                    newInstance = null;
+                }
+
+                if (newInstance != null)
+                {
+                    this.AddRange(newInstance);
+                    newInstance = null;
+                }
             }
             else
             {
