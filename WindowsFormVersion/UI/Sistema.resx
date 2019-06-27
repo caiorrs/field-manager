@@ -117,7 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Precisa ser assim porque nós precisamos separar a UI  da lógica. O form de configurações não pode ser dentro do simulador porque o simulador simula eventos externos, como as coisas da natureza. e nosso programa observa essas coisas</value>
-  </data>
 </root>

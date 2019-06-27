@@ -13,6 +13,11 @@ namespace WindowsFormVersion
     {
 
         public static bool Terminated = false;
+
+        public static Sistema_de_Corte.Controle.Controlador corte;
+        public static Sistema_de_Cobertura.Controle.Controlador cobertura;
+        public static Sistema_de_Irrigacao.Controle.Controlador irrigacao;
+        public static Servidor_Central.Gerenciador gerenciador;
         /// <summary>
         /// Ponto de entrada principal para o aplicativo.
         /// </summary>
@@ -24,14 +29,14 @@ namespace WindowsFormVersion
             //return;
             // aqui estariamos instanciando cada subsistema
 
-            Sistema_de_Cobertura.Controle.Controlador cobertura = new Sistema_de_Cobertura.Controle.Controlador();
+            cobertura = new Sistema_de_Cobertura.Controle.Controlador();
 
-            Sistema_de_Corte.Controle.Controlador corte = new Sistema_de_Corte.Controle.Controlador();
+            corte = new Sistema_de_Corte.Controle.Controlador();
 
-            Sistema_de_Irrigacao.Controle.Controlador irrigacao = new Sistema_de_Irrigacao.Controle.Controlador(cobertura);
+            irrigacao = new Sistema_de_Irrigacao.Controle.Controlador(cobertura);
 
 
-            Servidor_Central.Gerenciador gerenciador = new Servidor_Central.Gerenciador(irrigacao, cobertura, corte );
+            gerenciador = new Servidor_Central.Gerenciador(irrigacao, cobertura, corte );
            
             gerenciador.setup();
             corte.setup();

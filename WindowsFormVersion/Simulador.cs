@@ -142,9 +142,9 @@ namespace WindowsFormVersion
 
         private void Simulador_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (TESTEUI.Instance != null)
+            if (SistemaUI.Instance != null)
             {
-                TESTEUI.Instance.BeginInvoke((MethodInvoker)delegate () { TESTEUI.Instance.Close(); });
+                SistemaUI.Instance.BeginInvoke((MethodInvoker)delegate () { SistemaUI.Instance.Close(); });
             }
         }
 

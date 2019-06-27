@@ -14,7 +14,18 @@ namespace WindowsFormVersion
     {
         private int umidadeMinima = 0;
         private int alturaCorte = 0;
+        private int umidadeIdeal = 0;
 
+        public void setUmidadeIdeal(int valor)
+        {
+            umidadeIdeal = valor;
+        }
+
+        public int getUmidadeIdeal()
+        {
+            return umidadeIdeal;
+        }
+        
         public void setUmidadeMinima(int valor)
         {
             umidadeMinima = valor;
@@ -62,6 +73,7 @@ namespace WindowsFormVersion
         {
             alturaCorte = alturaCorteConf.Value;
             umidadeMinima =  umidadeMinConf.Value;
+            umidadeIdeal = trackBar1.Value;
             Close();
         }
 
@@ -79,6 +91,17 @@ namespace WindowsFormVersion
         {
             alturaCorteConf.Value = alturaCorte;
             umidadeMinConf.Value = umidadeMinima;
+            trackBar1.Value = umidadeIdeal;
+        }
+
+        private void TrackBar1_ValueChanged(object sender, EventArgs e)
+        {
+            label1.Text = trackBar1.Value.ToString();
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

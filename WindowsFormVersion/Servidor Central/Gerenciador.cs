@@ -78,7 +78,7 @@ namespace WindowsFormVersion.Servidor_Central
 
             UIExposed metodosUI = new UIExposed();
 
-            TESTEUI ui = new TESTEUI(metodosUI);
+            SistemaUI ui = new SistemaUI(metodosUI);
             ui.ShowDialog();
         }
 

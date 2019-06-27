@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace WindowsFormVersion.Servidor_Central
 {
-    public partial class TESTEUI : Form
+    public partial class SistemaUI : Form
     {
 
-        private static TESTEUI _Instance = null;
+        private static SistemaUI _Instance = null;
 
-        public static TESTEUI Instance
+        public static SistemaUI Instance
         {
             get
             {
@@ -25,7 +25,7 @@ namespace WindowsFormVersion.Servidor_Central
 
 
         iUIExposed metodosUI;
-        public TESTEUI(iUIExposed metodosUI)
+        public SistemaUI(iUIExposed metodosUI)
         {
             this.metodosUI = metodosUI;
             InitializeComponent();
@@ -37,12 +37,16 @@ namespace WindowsFormVersion.Servidor_Central
             Configuracoes frm = new WindowsFormVersion.Configuracoes();
             frm.setAlturaCorte(10);
             frm.setUmidadeMinima(25);
+            frm.setUmidadeIdeal(50);
             frm.ShowDialog();
+            Program.irrigacao.confIdeal = frm.getUmidadeIdeal();
+            Program.irrigacao.confMin = frm.getUmidadeMinima();
+            Program.corte.UpdateAltura(frm.getAlturaCorte());
         }
 
         private void Btn_CortarAgora_Click(object sender, EventArgs e)
         {
-            
+            Program.corte.Cortar();
         }
 
         private void TESTEUI_FormClosed(object sender, FormClosedEventArgs e)

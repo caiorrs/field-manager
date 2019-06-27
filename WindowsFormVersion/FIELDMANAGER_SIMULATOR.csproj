@@ -96,11 +96,11 @@
     <Compile Include="Persistencia de Dados\RelatorioUmidade.cs" />
     <Compile Include="Servidor Central\Gerenciador.cs" />
     <Compile Include="Servidor Central\Sistema de Previsão do Tempo\PrevisorDoTempo.cs" />
-    <Compile Include="UI\TESTEUI.cs">
+    <Compile Include="UI\Sistema.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\TESTEUI.Designer.cs">
-      <DependentUpon>TESTEUI.cs</DependentUpon>
+    <Compile Include="UI\Sistema.Designer.cs">
+      <DependentUpon>Sistema.cs</DependentUpon>
     </Compile>
     <Compile Include="Simulador.cs">
       <SubType>Form</SubType>
@@ -130,8 +130,8 @@
     <EmbeddedResource Include="UI\Configuracoes.resx">
       <DependentUpon>Configuracoes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\TESTEUI.resx">
-      <DependentUpon>TESTEUI.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Sistema.resx">
+      <DependentUpon>Sistema.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Simulador.resx">
       <DependentUpon>Simulador.cs</DependentUpon>

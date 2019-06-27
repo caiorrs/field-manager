@@ -24,6 +24,13 @@ namespace WindowsFormVersion.Sistema_de_Irrigacao.Monitoramento
             this.umidadeMinima = umidadeMinima;
             this.umidadeMaxima = umidadeMaxima;
         }
+
+        public void UpdateSetup(float min, float max)
+        {
+            umidadeMinima = min;
+            umidadeMaxima = max;
+        }
+
         public void loop()
         {
             while (!Program.Terminated)

@@ -54,7 +54,7 @@
             // trackBar1
             // 
             this.trackBar1.Location = new System.Drawing.Point(8, 23);
-            this.trackBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trackBar1.Margin = new System.Windows.Forms.Padding(4);
             this.trackBar1.Maximum = 50;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(313, 56);
@@ -64,7 +64,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(96, 137);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(132, 22);
@@ -87,9 +87,9 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Location = new System.Drawing.Point(23, 23);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(332, 208);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
@@ -101,9 +101,9 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Location = new System.Drawing.Point(380, 23);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(332, 208);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
@@ -111,9 +111,8 @@
             // 
             // umidadeTrackBar
             // 
-            this.umidadeTrackBar.LargeChange = 50;
             this.umidadeTrackBar.Location = new System.Drawing.Point(8, 23);
-            this.umidadeTrackBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.umidadeTrackBar.Margin = new System.Windows.Forms.Padding(4);
             this.umidadeTrackBar.Maximum = 100;
             this.umidadeTrackBar.Name = "umidadeTrackBar";
             this.umidadeTrackBar.Size = new System.Drawing.Size(313, 56);
@@ -133,7 +132,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(96, 137);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(132, 22);
@@ -144,9 +143,9 @@
             this.gb_Grama.Controls.Add(this.groupBox1);
             this.gb_Grama.Controls.Add(this.groupBox2);
             this.gb_Grama.Location = new System.Drawing.Point(16, 15);
-            this.gb_Grama.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb_Grama.Margin = new System.Windows.Forms.Padding(4);
             this.gb_Grama.Name = "gb_Grama";
-            this.gb_Grama.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gb_Grama.Padding = new System.Windows.Forms.Padding(4);
             this.gb_Grama.Size = new System.Drawing.Size(735, 263);
             this.gb_Grama.TabIndex = 7;
             this.gb_Grama.TabStop = false;
@@ -156,9 +155,9 @@
             // 
             this.gbChuva.Controls.Add(this.checkBox1);
             this.gbChuva.Location = new System.Drawing.Point(17, 287);
-            this.gbChuva.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbChuva.Margin = new System.Windows.Forms.Padding(4);
             this.gbChuva.Name = "gbChuva";
-            this.gbChuva.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbChuva.Padding = new System.Windows.Forms.Padding(4);
             this.gbChuva.Size = new System.Drawing.Size(353, 123);
             this.gbChuva.TabIndex = 8;
             this.gbChuva.TabStop = false;
@@ -168,7 +167,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(83, 54);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(132, 21);
             this.checkBox1.TabIndex = 1;
@@ -181,9 +180,9 @@
             this.gbTempo.Controls.Add(this.label3);
             this.gbTempo.Controls.Add(this.label4);
             this.gbTempo.Location = new System.Drawing.Point(396, 287);
-            this.gbTempo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbTempo.Margin = new System.Windows.Forms.Padding(4);
             this.gbTempo.Name = "gbTempo";
-            this.gbTempo.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbTempo.Padding = new System.Windows.Forms.Padding(4);
             this.gbTempo.Size = new System.Drawing.Size(355, 123);
             this.gbTempo.TabIndex = 9;
             this.gbTempo.TabStop = false;
@@ -215,7 +214,7 @@
             this.Controls.Add(this.gbTempo);
             this.Controls.Add(this.gbChuva);
             this.Controls.Add(this.gb_Grama);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Simulador";
             this.Text = "Simulador da natureza";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Simulador_FormClosed);

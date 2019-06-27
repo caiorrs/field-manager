@@ -14,6 +14,16 @@ namespace WindowsFormVersion.Sistema_de_Corte.Controle
     class Controlador: iCorte
     {
         Cortador cortador;
+
+        public void UpdateAltura(float value)
+        {
+            cortador.setAlturaLamina(value);
+        }
+
+        public void Cortar()
+        {
+            cortador.Cortar();
+        }
         public void agendarCorte(Agendamento corteAgendado)
         {                                            
             Action cortarGrama = cortador.Cortar;

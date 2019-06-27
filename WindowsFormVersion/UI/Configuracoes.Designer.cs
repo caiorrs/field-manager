@@ -38,8 +38,13 @@ namespace WindowsFormVersion
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.valorUmidadeMin = new System.Windows.Forms.Label();
             this.valorAlturaCorte = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.umidadeMinConf)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alturaCorteConf)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // umidadeMinConf
@@ -76,7 +81,7 @@ namespace WindowsFormVersion
             // 
             // alturaCorteConf
             // 
-            this.alturaCorteConf.Location = new System.Drawing.Point(50, 251);
+            this.alturaCorteConf.Location = new System.Drawing.Point(53, 349);
             this.alturaCorteConf.Margin = new System.Windows.Forms.Padding(4);
             this.alturaCorteConf.Maximum = 50;
             this.alturaCorteConf.Minimum = 5;
@@ -89,7 +94,7 @@ namespace WindowsFormVersion
             // textoAlturaGrama
             // 
             this.textoAlturaGrama.AutoSize = true;
-            this.textoAlturaGrama.Location = new System.Drawing.Point(107, 197);
+            this.textoAlturaGrama.Location = new System.Drawing.Point(110, 295);
             this.textoAlturaGrama.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.textoAlturaGrama.Name = "textoAlturaGrama";
             this.textoAlturaGrama.Size = new System.Drawing.Size(206, 17);
@@ -98,7 +103,7 @@ namespace WindowsFormVersion
             // 
             // btnConfirmar
             // 
-            this.btnConfirmar.Location = new System.Drawing.Point(154, 343);
+            this.btnConfirmar.Location = new System.Drawing.Point(216, 434);
             this.btnConfirmar.Margin = new System.Windows.Forms.Padding(4);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(100, 28);
@@ -121,7 +126,7 @@ namespace WindowsFormVersion
             // valorAlturaCorte
             // 
             this.valorAlturaCorte.AutoSize = true;
-            this.valorAlturaCorte.Location = new System.Drawing.Point(191, 230);
+            this.valorAlturaCorte.Location = new System.Drawing.Point(194, 328);
             this.valorAlturaCorte.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.valorAlturaCorte.Name = "valorAlturaCorte";
             this.valorAlturaCorte.Size = new System.Drawing.Size(34, 17);
@@ -129,11 +134,56 @@ namespace WindowsFormVersion
             this.valorAlturaCorte.Text = "ALT";
             this.valorAlturaCorte.Click += new System.EventHandler(this.ValorAlturaCorte_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(191, 207);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(32, 17);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "MIN";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(151, 176);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(124, 17);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Umidade Ideal (%)";
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(50, 228);
+            this.trackBar1.Margin = new System.Windows.Forms.Padding(4);
+            this.trackBar1.Maximum = 100;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(313, 56);
+            this.trackBar1.TabIndex = 12;
+            this.trackBar1.ValueChanged += new System.EventHandler(this.TrackBar1_ValueChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(108, 434);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 28);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Cancelar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
             // Configuracoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(400, 403);
+            this.ClientSize = new System.Drawing.Size(400, 485);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.valorAlturaCorte);
             this.Controls.Add(this.valorUmidadeMin);
             this.Controls.Add(this.btnConfirmar);
@@ -150,6 +200,7 @@ namespace WindowsFormVersion
             this.VisibleChanged += new System.EventHandler(this.Configuracoes_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.umidadeMinConf)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.alturaCorteConf)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,5 +226,9 @@ namespace WindowsFormVersion
         private System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.Label valorUmidadeMin;
         private System.Windows.Forms.Label valorAlturaCorte;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.Button button1;
     }
 }
