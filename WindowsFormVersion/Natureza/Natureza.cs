@@ -25,6 +25,10 @@ namespace WindowsFormVersion.Natureza
             set
             {
                 _altura = value;
+                if (_altura < 0)
+                {
+                    _altura = 0;
+                }
                 if (Simulador.Instance != null)
                 {
                     Simulador.Instance.UpdateGramaSize(_altura);
@@ -41,6 +45,14 @@ namespace WindowsFormVersion.Natureza
             set
             {
                 _umidade = value;
+                if (_umidade < 0)
+                {
+                    _umidade = 0;
+                }
+                if (_umidade > 100)
+                {
+                    _umidade = 100;
+                }
                 if (Simulador.Instance != null)
                 {
                     Simulador.Instance.UpdateUmidade(_umidade);

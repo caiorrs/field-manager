@@ -24,5 +24,10 @@ namespace WindowsFormVersion.Servidor_Central
         {
             new WindowsFormVersion.Configuracoes().Show();
         }
+
+        private void Btn_CortarAgora_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
