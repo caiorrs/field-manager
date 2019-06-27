@@ -15,12 +15,12 @@ namespace WindowsFormVersion.Persistencia_de_Dados
         private RelatorioCorte()
         {
             Dados = new DataSaver<Log>();
-            Dados.LoadFromFile("RelatorioUmidade.xml");
+            Dados.LoadFromFile("RelatorioCorte.xml");
         }
 
         ~RelatorioCorte()
         {
-            Dados.SaveToFile("RelatorioUmidade.xml");
+            Dados.SaveToFile("RelatorioCorte.xml");
         }
 
         public static RelatorioCorte Instance
