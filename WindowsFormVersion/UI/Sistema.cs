@@ -59,7 +59,7 @@ namespace WindowsFormVersion.Servidor_Central
 
         private void TESTEUI_VisibleChanged(object sender, EventArgs e)
         {
-            Left = 690;
+            Left = 600;
             Top = 100;
         }
     }

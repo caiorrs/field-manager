@@ -12,8 +12,6 @@ namespace WindowsFormVersion.Sistema_de_Irrigacao
         float getValorUmidade();
         bool setUmidadeThreshold(float umidadeMax, float umidadeMin);
         /*
-         * 
-         * 
          1. getValorUmidade(): float​: retorna o valor atual do sensor de
 umidade.
 2. setUmidadeThreshold(float umidadeMax, float umidadeMin):
@@ -21,8 +19,6 @@ bool​: passa para o sistema de irrigação os valores de threshold
 da umidade da 
 . Retorna true caso a configuração tenha
 sido feita com sucesso e false caso contrário.
-         * 
-         * 
          */
     }
 }

@@ -168,7 +168,6 @@ namespace WindowsFormVersion.Servidor_Central
             {
                 for (int i = horaInicial; i < 24; i++)
                 {
-                    //fake total
                     float p = 30; //como vai chover matenho a abertura em 30% para nao molhar demais a grama
                     Business.Agendamento a = new Business.Agendamento(i, p);
                     q.Enqueue(a);
@@ -178,7 +177,6 @@ namespace WindowsFormVersion.Servidor_Central
             {
                 for (int i = horaInicial; i < 24; i++)
                 {
-                    //fake total
                     float p;
                     //50% eh o padrao, mas entre as 14 e as 18, abro em 100 pra pegar sol%
                     if (i >= 14 && i <= 18)

@@ -40,7 +40,6 @@ namespace WindowsFormVersion.Servidor_Central.Sistema_de_Previsão_do_Tempo
             {
                 for (int i = 0; i < 24; i++)
                 {
-                    //fake total
                     float p  = 30; //como vai chover matenho a abertura em 30% para nao molhar demais a grama
                     Business.Agendamento a = new Business.Agendamento(i, p);
                     q.Enqueue(a);

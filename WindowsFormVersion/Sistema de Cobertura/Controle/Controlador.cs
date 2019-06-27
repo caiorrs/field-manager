@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormVersion.Sistema_de_Cobertura.Controle
 {
-    class Controlador : iIrrigacaoToCobertura, iIncidencia//, iSistema
+    class Controlador : iIrrigacaoToCobertura, iIncidencia
     {
         Cobertura cobertura;
 
@@ -36,7 +36,6 @@ namespace WindowsFormVersion.Sistema_de_Cobertura.Controle
             Console.WriteLine("instanciou cobertura");
         }
 
-        // vou ter o agendamento... sou eu que fiz
         public void umidadeAcimaLimite()
         {
             if (cobertura.estaChovendo())

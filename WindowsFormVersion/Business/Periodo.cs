@@ -13,7 +13,6 @@ namespace WindowsFormVersion.Business
 
         Periodo (DateTime dInicial, DateTime dFinal)
         {
-            //TO-DO  verificar se essa eh a melhor opcao
             if (dInicial > dFinal)
                 throw new Exception("Periodo invalido");
             this.dataInicial = dInicial;

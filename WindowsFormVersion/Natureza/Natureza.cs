@@ -8,8 +8,6 @@ using System.Windows.Forms;
 
 namespace WindowsFormVersion.Natureza
 {
-    //implementando a grama como um singleton
-    //por enquanto um bem simples porque ele nao eh thread safe
     public sealed class Grama
     {
         private float _altura;
@@ -86,8 +84,8 @@ namespace WindowsFormVersion.Natureza
         private static readonly Grama instance = new Grama();
         private Grama()
         {
-            altura = rng.Next(10, 30);
-            umidade = rng.Next(10, 80);
+            altura = rng.Next(15, 25);
+            umidade = rng.Next(30, 80);
         }
 
         public static Grama Instance

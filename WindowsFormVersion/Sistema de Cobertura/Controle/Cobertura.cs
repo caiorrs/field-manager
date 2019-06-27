@@ -11,17 +11,6 @@ namespace WindowsFormVersion.Sistema_de_Cobertura.Controle
 
         private float porcentagemAberturaAtual;
 
-        /*
-         * 
-         * 
-         * 
-         * 
-         * 
-         * 
-         */
-
-
-
         /* public interface iCobertura
          {
              /// Seta a porcentagem de abertura da cobertura. 0% para a cobertura completamente fechada e 100% para cobertura completamente aberta.

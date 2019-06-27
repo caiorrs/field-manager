@@ -37,7 +37,7 @@ namespace WindowsFormVersion.Sistema_de_Corte.Controle
         public  void setup()
         {
             //crio classe q fica monitorando a natureza
-            float alturaPreDefinida = 10; //digamos que tu receba isso do usuario
+            float alturaPreDefinida = 10; //valor padrão
             cortador = new Cortador();
             cortador.setAlturaLamina(alturaPreDefinida);
 

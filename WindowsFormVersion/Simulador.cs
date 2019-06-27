@@ -21,7 +21,7 @@ namespace WindowsFormVersion
             UpdateUmidade(Natureza.Grama.Instance.umidade);
             SetChovendo(Natureza.Clima.Instance.estaChovendo());
             UpdateTempo(Natureza.Tempo.Instance.Now.ToString());
-            Left = 100;
+            Left = 10;
             Top = 100;
             Instance = this;
         }
@@ -151,7 +151,7 @@ namespace WindowsFormVersion
         private void Simulador_VisibleChanged(object sender, EventArgs e)
         {
             Top = 100;
-            Left = 100;
+            Left = 10;
         }
     }
 }
