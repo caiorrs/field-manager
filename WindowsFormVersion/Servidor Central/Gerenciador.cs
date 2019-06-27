@@ -5,25 +5,70 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormVersion.Business;
 
 namespace WindowsFormVersion.Servidor_Central
 {
 
+    class UIExposed : iUIExposed
+    {
+        public UIExposed()
+        {
 
+        }
+        public void agendarCorte(DateTime data, float altura)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool configurarSistema(string cidade, int tipoGrama)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void cortarAgora()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string getRelatorioCorte(Periodo periodo)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string getRelatorioUmidade(Periodo periodo)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string getTiposDeGrama()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool setAltura(float altura)
+        {
+            throw new NotImplementedException();
+        }
+    }
 
 
     //essa classe que tem acesso aos outros sistemas
     class Gerenciador
     {
-        //acredit oque seria setCronograma de iIncidencia
-        // ponto de acesso para o 
+        Sistema_de_Irrigacao.iIrrigacao irrigacao;
         Sistema_de_Cobertura.iIncidencia sistemaIncidencia;
         Sistema_de_Corte.iCorte sistemaCorte;
 
-        public Gerenciador(Sistema_de_Cobertura.iIncidencia sistemaIncidencia, Sistema_de_Corte.iCorte sistemaCorte)
+        List<AgendamentoCorte> agendamentosCorte;
+
+        public Gerenciador(Sistema_de_Irrigacao.iIrrigacao irrigacao, Sistema_de_Cobertura.iIncidencia sistemaIncidencia, Sistema_de_Corte.iCorte sistemaCorte)
         {
+            this.irrigacao = irrigacao;
             this.sistemaIncidencia = sistemaIncidencia;
             this.sistemaCorte = sistemaCorte;
+
+            this.agendamentosCorte = new List<AgendamentoCorte>();
         }
 
         private void startUI()
@@ -31,7 +76,9 @@ namespace WindowsFormVersion.Servidor_Central
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            TESTEUI ui = new TESTEUI();
+            UIExposed metodosUI = new UIExposed();
+
+            TESTEUI ui = new TESTEUI(metodosUI);
             ui.ShowDialog();
         }
 
@@ -39,8 +86,9 @@ namespace WindowsFormVersion.Servidor_Central
         {
 
             Thread UIthrd = new Thread(new ThreadStart(this.startUI));
-            UIthrd.Start();            
+            UIthrd.Start();
 
+            //inicializa com o primeiro cronograma
             int horaAgora = Natureza.Tempo.Instance.HoraDoDia();
             sistemaIncidencia.setCronograma(this.createCronogramaHorasSol(horaAgora));
 
@@ -48,24 +96,16 @@ namespace WindowsFormVersion.Servidor_Central
             thr.Start();
             Console.WriteLine("instanciou servidor central");
 
-            //TO-DO nao vai ser assim mas tenho q ver como vou receber os agendamentos
-            // no caso tenho q receber da ui...
-            float alturaGrama = 11; //mm
-            Business.Agendamento a = new Business.Agendamento(7, alturaGrama);
-            sistemaCorte.agendarCorte(a);
+            irrigacao.setUmidadeThreshold(0, 100);
+        }
+
+        private void agendarCorte(AgendamentoCorte a)
+        {
+            this.agendamentosCorte.Add(a);
         }
 
         private void configurarSubSistemas()
         {
-
-            /*
-  * 
-  * tem q ter uma thread 
-  * que fica olhando o horario
-  * 
-  * e todo dia as 23h ela cria os cronogramas 
-  * e passa para os subsistemas
-  * */
             while (!Program.Terminated)
             {
                 int horaAgora = -1;
@@ -76,14 +116,39 @@ namespace WindowsFormVersion.Servidor_Central
                 }
                 //ja sao 23 agora
                 this.configurarSistemaCobertura();
+                this.configurarSistemaCortes();
 
                 Natureza.Tempo.Instance.passaDuasHoras();
             }
         }
 
+        private void configurarSistemaCortes()
+        {
+            /*
+             * 
+             * se ha um corte agendado para amanha, o sistema agenda o corte
+             * 
+             */
+
+            return;
+            DateTime tomorrow = Natureza.Tempo.Instance.Now.AddDays(1);
+            this.agendamentosCorte.Sort();
+            foreach (AgendamentoCorte agendamentoCorte in this.agendamentosCorte)
+            {
+                //TO-DO verificar se                 agendamentoCorte.getDate() é para amanha
+                // se for, entao criamos um novo agendamento
+                Business.Agendamento a = new Business.Agendamento(agendamentoCorte.getDate().Hour, agendamentoCorte.getAltura());
+                sistemaCorte.agendarCorte(a);
+
+                //remove esse agendamento da lista
+
+                //quando nao for mais amanha, ai break.
+            }
+        }
         private void configurarSistemaIrrigacao()
         {
-
+            //TO-DO nao consegui pensar em que tipos de configuracao esse sistema precisa
+            return;
         }
 
         private void configurarSistemaCobertura()

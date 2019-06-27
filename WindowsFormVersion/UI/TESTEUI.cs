@@ -12,9 +12,17 @@ namespace WindowsFormVersion.Servidor_Central
 {
     public partial class TESTEUI : Form
     {
-        public TESTEUI()
+
+        iUIExposed metodosUI;
+        public TESTEUI(iUIExposed metodosUI)
         {
-            InitializeComponent();
+            this.metodosUI = metodosUI;
+            InitializeComponent();            
+        }
+
+        private void BtnConfigurar_Click(object sender, EventArgs e)
+        {
+            new WindowsFormVersion.Configuracoes().Show();
         }
     }
 }

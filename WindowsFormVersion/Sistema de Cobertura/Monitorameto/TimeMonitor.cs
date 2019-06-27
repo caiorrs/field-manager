@@ -44,8 +44,6 @@ namespace WindowsFormVersion.Sistema_de_Cobertura.Monitorameto
                     Natureza.Tempo.Instance.inserePequenoDelay();
                 }
 
-                //  to-do POSSIVEL BUG
-
                 //se saiu do loop eh pq ta na hora de fazer o negocio
                 setAbertura(abertura);              
 

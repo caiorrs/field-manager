@@ -106,10 +106,8 @@ namespace WindowsFormVersion
             Sistema_de_Irrigacao.Controle.Controlador irrigacao = new Sistema_de_Irrigacao.Controle.Controlador(cobertura);
 
 
-            Servidor_Central.Gerenciador gerenciador = new Servidor_Central.Gerenciador(cobertura, corte);
-            corte.setup();
-            cobertura.setup();
-            irrigacao.setup();
+            Servidor_Central.Gerenciador gerenciador = new Servidor_Central.Gerenciador(irrigacao, cobertura, corte );
+           
             gerenciador.setup();
 
             Thread thr = new Thread(new ThreadStart(Natureza.Tempo.Instance.passTime));

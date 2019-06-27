@@ -12,25 +12,44 @@ using WindowsFormVersion.Sistema_de_Cobertura;
 
 namespace WindowsFormVersion.Sistema_de_Irrigacao.Controle
 {
-    class Controlador
+    class Controlador : iIrrigacao
     {
         Irrigador irrigador;
 
         iIrrigacaoToCobertura iIrriToCob;
 
+        private float minUmidade = -1;
+         private float maxUmidade = -1;
+
+        iSensorUmidade sensor;
+
         public Controlador(iIrrigacaoToCobertura iIrriToCob)
         {
-            //precisa receber a referencia no startup
             this.iIrriToCob = iIrriToCob;
+            this.sensor = new SensorUmidade();
         }
+
+        public float getValorUmidade()
+        {
+            return this.sensor.getLeitura();
+        }
+
+        public bool setUmidadeThreshold(float umidadeMax, float umidadeMin)
+        {
+            this.maxUmidade = umidadeMax;
+            this.minUmidade = umidadeMin;
+            return true; //sucesso
+        }
+
         public void setup()
         {
             //crio classe q fica monitorando a natureza
             //digamos que tu receba isso do usuario
 
-            float minUmidade, maxUmidade;
-            minUmidade = 200;
-            maxUmidade = 450;
+            if (minUmidade < 0 || maxUmidade < 0)
+            {
+                throw new Exception("Sistema de irrigaçao nao configurado");
+            }
 
             float idealUmidade = (minUmidade + maxUmidade) / 2;
 
@@ -40,7 +59,7 @@ namespace WindowsFormVersion.Sistema_de_Irrigacao.Controle
             Action callbackLOW = irrigador.Irrigar;
             Action callbackHIGH = iIrriToCob.umidadeAcimaLimite;
 
-            Monitorador m = new Monitorador(callbackLOW, callbackHIGH, minUmidade, maxUmidade);
+            Monitorador m = new Monitorador(this.sensor,callbackLOW, callbackHIGH, minUmidade, maxUmidade);
 
             Thread thr = new Thread(new ThreadStart(m.loop));
             thr.Start();

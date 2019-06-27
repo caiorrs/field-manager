@@ -14,6 +14,11 @@ namespace WindowsFormVersion.Sistema_de_Cobertura.Controle
         int TESTE_REF = 0; //minha ideia era passar isso pra um boleano e mudar aqui e a thread la dentro ver
 
         private Queue<Business.Agendamento> cronogramaHoje;
+
+        public Controlador()
+        {
+            cobertura = new Cobertura();
+        }
         public void setCronograma(Queue<Business.Agendamento> q)
         {
             //Natureza.Tempo.Instance.inserePequenoDelay();
@@ -26,10 +31,7 @@ namespace WindowsFormVersion.Sistema_de_Cobertura.Controle
 
         }
         public void setup()
-        {
-            //crio classe q fica monitorando a natureza
-            // float alturaPreDefinida = 10; //digamos que tu receba isso do usuario
-            cobertura = new Cobertura();
+        {      
 
             Console.WriteLine("instanciou cobertura");
         }
@@ -37,23 +39,10 @@ namespace WindowsFormVersion.Sistema_de_Cobertura.Controle
         // vou ter o agendamento... sou eu que fiz
         public void umidadeAcimaLimite()
         {
-            /*
-             * TO-DO 
-             * 
-             * preciso matar a thread que esta fazendo o cronograma             * 
-             * isso tem q ser atraves de alguma flag global etc.      
-             * * 
-             * a acao depende se esta chovendo ou nao                   * * 
-             * se estiver chovendo, fecha             * 
-             * se nao estiver chovendo, abre
-             * 
-             */
-
             if (cobertura.estaChovendo())
                 cobertura.close();
             else
                 cobertura.open();
-
         }
     }
 }
