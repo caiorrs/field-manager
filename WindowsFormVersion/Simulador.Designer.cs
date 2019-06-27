@@ -36,11 +36,19 @@
             this.umidadeTrackBar = new System.Windows.Forms.TrackBar();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.btnConfigurar = new System.Windows.Forms.Button();
+            this.gb_Grama = new System.Windows.Forms.GroupBox();
+            this.gbChuva = new System.Windows.Forms.GroupBox();
+            this.gbTempo = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.umidadeTrackBar)).BeginInit();
+            this.gb_Grama.SuspendLayout();
+            this.gbChuva.SuspendLayout();
+            this.gbTempo.SuspendLayout();
             this.SuspendLayout();
             // 
             // trackBar1
@@ -74,7 +82,7 @@
             this.groupBox1.Controls.Add(this.trackBar1);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(48, 31);
+            this.groupBox1.Location = new System.Drawing.Point(17, 19);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(249, 169);
             this.groupBox1.TabIndex = 3;
@@ -86,7 +94,7 @@
             this.groupBox2.Controls.Add(this.umidadeTrackBar);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Location = new System.Drawing.Point(317, 31);
+            this.groupBox2.Location = new System.Drawing.Point(285, 19);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(249, 169);
             this.groupBox2.TabIndex = 4;
@@ -119,26 +127,76 @@
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 1;
             // 
-            // btnConfigurar
+            // gb_Grama
             // 
-            this.btnConfigurar.Location = new System.Drawing.Point(266, 248);
-            this.btnConfigurar.Name = "btnConfigurar";
-            this.btnConfigurar.Size = new System.Drawing.Size(75, 23);
-            this.btnConfigurar.TabIndex = 5;
-            this.btnConfigurar.Text = "Configurar";
-            this.btnConfigurar.UseVisualStyleBackColor = true;
-            this.btnConfigurar.Click += new System.EventHandler(this.BtnConfigurar_Click);
+            this.gb_Grama.Controls.Add(this.groupBox1);
+            this.gb_Grama.Controls.Add(this.groupBox2);
+            this.gb_Grama.Location = new System.Drawing.Point(12, 12);
+            this.gb_Grama.Name = "gb_Grama";
+            this.gb_Grama.Size = new System.Drawing.Size(551, 214);
+            this.gb_Grama.TabIndex = 7;
+            this.gb_Grama.TabStop = false;
+            this.gb_Grama.Text = "Grama";
+            // 
+            // gbChuva
+            // 
+            this.gbChuva.Controls.Add(this.checkBox1);
+            this.gbChuva.Location = new System.Drawing.Point(13, 233);
+            this.gbChuva.Name = "gbChuva";
+            this.gbChuva.Size = new System.Drawing.Size(265, 100);
+            this.gbChuva.TabIndex = 8;
+            this.gbChuva.TabStop = false;
+            this.gbChuva.Text = "Chuva";
+            // 
+            // gbTempo
+            // 
+            this.gbTempo.Controls.Add(this.label3);
+            this.gbTempo.Controls.Add(this.label4);
+            this.gbTempo.Location = new System.Drawing.Point(297, 233);
+            this.gbTempo.Name = "gbTempo";
+            this.gbTempo.Size = new System.Drawing.Size(266, 100);
+            this.gbTempo.TabIndex = 9;
+            this.gbTempo.TabStop = false;
+            this.gbTempo.Text = "Tempo";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(7, 19);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(63, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Hora agora:";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(62, 44);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(104, 17);
+            this.checkBox1.TabIndex = 1;
+            this.checkBox1.Text = "Está chovendo?";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(37, 44);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(204, 42);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "mostra a hora, (data.ToString()) atual do sistema, chama tipo Natureza.Tempo.Inst" +
+    "ance.Now()";
             // 
             // Simulador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(606, 283);
-            this.Controls.Add(this.btnConfigurar);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(573, 343);
+            this.Controls.Add(this.gbTempo);
+            this.Controls.Add(this.gbChuva);
+            this.Controls.Add(this.gb_Grama);
             this.Name = "Simulador";
-            this.Text = "O simulador mais feio do mundo";
+            this.Text = "Simulador da natureza";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -146,6 +204,11 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.umidadeTrackBar)).EndInit();
+            this.gb_Grama.ResumeLayout(false);
+            this.gbChuva.ResumeLayout(false);
+            this.gbChuva.PerformLayout();
+            this.gbTempo.ResumeLayout(false);
+            this.gbTempo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -160,7 +223,12 @@
         private System.Windows.Forms.TrackBar umidadeTrackBar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button btnConfigurar;
+        private System.Windows.Forms.GroupBox gb_Grama;
+        private System.Windows.Forms.GroupBox gbChuva;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.GroupBox gbTempo;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 

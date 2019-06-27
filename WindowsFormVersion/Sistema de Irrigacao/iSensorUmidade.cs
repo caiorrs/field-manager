@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WindowsFormVersion.Sistema_de_Irrigacao.Monitoramento
+namespace WindowsFormVersion.Sistema_de_Irrigacao
 {
 
-    class SensorUmidade : iSensorUmidade
+    public class SensorUmidade : iSensorUmidade
     {
         public float getLeitura()
         {
@@ -15,7 +15,7 @@ namespace WindowsFormVersion.Sistema_de_Irrigacao.Monitoramento
         }
     }
 
-    interface iSensorUmidade
+    public interface iSensorUmidade
     {
         float getLeitura();
     }

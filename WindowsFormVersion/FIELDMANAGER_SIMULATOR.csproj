@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -63,10 +78,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\Agendamento.cs" />
-    <Compile Include="Configuracoes.cs">
+    <Compile Include="Business\Periodo.cs" />
+    <Compile Include="Servidor Central\AgendamentoCorte.cs" />
+    <Compile Include="Servidor Central\iUIExposed.cs" />
+    <Compile Include="Sistema de Irrigacao\Controle\iIrrigador.cs" />
+    <Compile Include="Sistema de Irrigacao\LogUmidade.cs" />
+    <Compile Include="UI\Configuracoes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Configuracoes.Designer.cs">
+    <Compile Include="UI\Configuracoes.Designer.cs">
       <DependentUpon>Configuracoes.cs</DependentUpon>
     </Compile>
     <Compile Include="Natureza\Natureza.cs" />
@@ -76,10 +96,10 @@
     <Compile Include="Persistencia de Dados\RelatorioUmidade.cs" />
     <Compile Include="Servidor Central\Gerenciador.cs" />
     <Compile Include="Servidor Central\Sistema de Previsão do Tempo\PrevisorDoTempo.cs" />
-    <Compile Include="Servidor Central\TESTEUI.cs">
+    <Compile Include="UI\TESTEUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Servidor Central\TESTEUI.Designer.cs">
+    <Compile Include="UI\TESTEUI.Designer.cs">
       <DependentUpon>TESTEUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Simulador.cs">
@@ -104,13 +124,13 @@
     <Compile Include="Sistema de Irrigacao\Controle\Irrigador.cs" />
     <Compile Include="Sistema de Irrigacao\Controle\Controlador.cs" />
     <Compile Include="Sistema de Irrigacao\iIrrigacao.cs" />
-    <Compile Include="Sistema de Irrigacao\Monitoramento\Interface1.cs" />
+    <Compile Include="Sistema de Irrigacao\iSensorUmidade.cs" />
     <Compile Include="Sistema de Irrigacao\Monitoramento\Monitorador.cs" />
     <Compile Include="iSistema.cs" />
-    <EmbeddedResource Include="Configuracoes.resx">
+    <EmbeddedResource Include="UI\Configuracoes.resx">
       <DependentUpon>Configuracoes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Servidor Central\TESTEUI.resx">
+    <EmbeddedResource Include="UI\TESTEUI.resx">
       <DependentUpon>TESTEUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Simulador.resx">
@@ -139,6 +159,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

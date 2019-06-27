@@ -14,9 +14,11 @@ namespace WindowsFormVersion.Sistema_de_Irrigacao.Monitoramento
         Action callbackHIGH;
         float umidadeMinima;
         float umidadeMaxima;
+        iSensorUmidade sensor;
 
-        public Monitorador(Action callbackLOW, Action callbackHIGH, float umidadeMinima, float umidadeMaxima)
+        public Monitorador(iSensorUmidade sensor, Action callbackLOW, Action callbackHIGH, float umidadeMinima, float umidadeMaxima)
         {
+            this.sensor = sensor;
             this.callbackLOW = callbackLOW;
             this.callbackHIGH = callbackHIGH;
             this.umidadeMinima = umidadeMinima;
@@ -26,21 +28,15 @@ namespace WindowsFormVersion.Sistema_de_Irrigacao.Monitoramento
         {
             while (!Program.Terminated)
             {
-                //TO-DO aqui deveria ler o 
-                float umidadeAtual = Natureza.Grama.Instance.umidade;
+                float umidadeAtual = sensor.getLeitura();
                 if (umidadeAtual < umidadeMinima)
                 {
                     Console.WriteLine("a umidade estava abaixo do minimo");
                     callbackLOW();
                 }
 
-
-                //TO-DO como 
-
                 if (umidadeAtual > umidadeMaxima)
                 {
-                    //ai tenho que mandar uma mensagem para o sistema de cobertura
-                    //para que o bixo feche a cobertura
                     Console.WriteLine("a umidade estava acima do maximo");
                     callbackHIGH();
                 }

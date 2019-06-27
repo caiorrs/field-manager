@@ -9,6 +9,8 @@ namespace WindowsFormVersion.Sistema_de_Irrigacao
     interface iIrrigacao
     {
 
+        float getValorUmidade();
+        bool setUmidadeThreshold(float umidadeMax, float umidadeMin);
         /*
          * 
          * 
