@@ -9,13 +9,15 @@ namespace WindowsFormVersion.Sistema_de_Cobertura.Monitorameto
 { 
     class TimeMonitor
     {
-        Action<float> callback; // funcao da cobertura que seta a abertura
+        Action<float> setAbertura; // funcao da cobertura que seta a abertura
         Queue<Business.Agendamento> q;
+        int CONTINUE;
 
-        public TimeMonitor(Action<float> callback, Queue<Business.Agendamento> q)
+        public TimeMonitor(Action<float> callback, Queue<Business.Agendamento> q, ref int CONTINUE)
         {
-            this.callback = callback;
+            this.setAbertura = callback;
             this.q = q;
+            this.CONTINUE = CONTINUE;
         }
 
         public void loop()
@@ -30,18 +32,22 @@ namespace WindowsFormVersion.Sistema_de_Cobertura.Monitorameto
 
                 Business.Agendamento nextAgendamento = q.Dequeue();
                 int nexHour = nextAgendamento.horaDoDia;
-                float abertura = nextAgendamento.porcentagemAberturaCobertura;
+                float abertura = nextAgendamento.value;
 
                 int horaAgora = -1;
+
+                Console.WriteLine("///////////////////////continue agora vale {0}", CONTINUE);
 
                 while((!Program.Terminated) && (horaAgora != nexHour))
                 {
                     horaAgora = Natureza.Tempo.Instance.HoraDoDia();
-                    Thread.Sleep(100);
+                    Natureza.Tempo.Instance.inserePequenoDelay();
                 }
 
+                //  to-do POSSIVEL BUG
+
                 //se saiu do loop eh pq ta na hora de fazer o negocio
-                callback(abertura);              
+                setAbertura(abertura);              
 
             }
         }

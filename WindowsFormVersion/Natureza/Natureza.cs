@@ -24,6 +24,7 @@ namespace WindowsFormVersion.Natureza
                 return instance;
             }
         }
+
     }
 
     public sealed class Tempo
@@ -59,9 +60,19 @@ namespace WindowsFormVersion.Natureza
                 DateTime Temp = Now;
                 Temp = Temp.AddHours(1);
                 this.Now = Temp;
-                Thread.Sleep(1000 * this.velocidadeTempo); 
+                Thread.Sleep(1000 * this.velocidadeTempo);
                 Console.WriteLine("tempo agora: " + Now.ToString());
             }
+        }
+
+        public void inserePequenoDelay()
+        {
+            Thread.Sleep(this.velocidadeTempo * 1000 / 5);
+        }
+
+        public void passaDuasHoras()
+        {
+            Thread.Sleep(this.velocidadeTempo * 1000 * 2);
         }
 
     }
@@ -69,11 +80,14 @@ namespace WindowsFormVersion.Natureza
     public sealed class Clima
     {
         private static readonly Clima instance = new Clima();
-        private Clima() {
-            this.chuva = false;
+        private Clima()
+        {
+            this.chuvaAgora = false;
+            this.chuvaFuturo = false;
         }
 
-        private bool chuva;
+        private bool chuvaAgora;
+        private bool chuvaFuturo;
 
         public static Clima Instance
         {
@@ -83,9 +97,14 @@ namespace WindowsFormVersion.Natureza
             }
         }
 
+        public bool estaChovendo()
+        {
+            return this.chuvaAgora;
+        }
+
         public bool vaiChover()
         {
-            return this.chuva;
+            return this.chuvaAgora;
         }
     }
 

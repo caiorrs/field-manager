@@ -30,6 +30,11 @@ namespace WindowsFormVersion.Sistema_de_Cobertura.Controle
          }
          */
 
+            public bool estaChovendo()
+        {
+            return Natureza.Clima.Instance.estaChovendo();
+        }
+
         public void setOpening(float percentage)
         {
             this.porcentagemAberturaAtual = percentage;
@@ -40,10 +45,12 @@ namespace WindowsFormVersion.Sistema_de_Cobertura.Controle
 
         public void open()
         {
+            this.setOpening(100);
             Console.WriteLine("abrindo...");
         }
         public void close()
         {
+            this.setOpening(0);
             Console.WriteLine("fechando...");
         }
 

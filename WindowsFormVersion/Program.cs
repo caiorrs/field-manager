@@ -7,9 +7,6 @@ using System.Windows.Forms;
 
 using WindowsFormVersion;
 
-
-using WindowsFormVersion.API;
-
 namespace WindowsFormVersion
 {
     static class Program
@@ -109,19 +106,19 @@ namespace WindowsFormVersion
             Sistema_de_Irrigacao.Controle.Controlador irrigacao = new Sistema_de_Irrigacao.Controle.Controlador(cobertura);
 
 
-            Servidor_Central.Gerenciador gerenciador = new Servidor_Central.Gerenciador(cobertura);
-            gerenciador.setup();
+            Servidor_Central.Gerenciador gerenciador = new Servidor_Central.Gerenciador(cobertura, corte);
             corte.setup();
-            irrigacao.setup();
             cobertura.setup();
+            irrigacao.setup();
+            gerenciador.setup();
 
             Thread thr = new Thread(new ThreadStart(Natureza.Tempo.Instance.passTime));
             thr.Start();
             //mando o tempo rodar
 
             // isso seria o simulador v
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Simulador());
             Program.Terminated = true;
         }

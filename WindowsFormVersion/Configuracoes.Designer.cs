@@ -228,6 +228,7 @@ namespace WindowsFormVersion
             this.Controls.Add(this.umidadeMinConf);
             this.Name = "Configuracoes";
             this.Text = "Configuracoes";
+            this.Load += new System.EventHandler(this.Configuracoes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.umidadeMinConf)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.umidadeMaxConf)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.alturaCorteConf)).EndInit();

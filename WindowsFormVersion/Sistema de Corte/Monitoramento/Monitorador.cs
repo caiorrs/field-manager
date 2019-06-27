@@ -32,7 +32,7 @@ namespace WindowsFormVersion.Sistema_de_Corte.Monitoramento
                 string s = "Altura atual da grama:" + alturaAtual.ToString();
                 Console.WriteLine(s);
 
-                Thread.Sleep(1000);
+                Natureza.Tempo.Instance.inserePequenoDelay();
             }
         }
     }

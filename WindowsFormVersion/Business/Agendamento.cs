@@ -11,14 +11,14 @@ namespace WindowsFormVersion.Business
         public Agendamento(int hora, float perc)
         {
             this.horaDoDia = hora;
-            this.porcentagemAberturaCobertura = perc;
+            this.value = perc;
         }
         public int horaDoDia { get; }
-        public float porcentagemAberturaCobertura { get; }
+        public float value { get; }
 
         public override string ToString()
         {
-            return "Hora: " + horaDoDia.ToString() + "; %: " + porcentagemAberturaCobertura.ToString();
+            return "Hora: " + horaDoDia.ToString() + "; %: " + value.ToString();
         }
     }
 }

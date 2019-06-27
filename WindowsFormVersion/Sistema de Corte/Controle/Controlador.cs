@@ -7,19 +7,29 @@ using System.Threading.Tasks;
 using System.Threading;
 
 using WindowsFormVersion.Sistema_de_Corte.Monitoramento;
+using WindowsFormVersion.Business;
 
 namespace WindowsFormVersion.Sistema_de_Corte.Controle
 {
-    class Controlador
+    class Controlador: iCorte
     {
         Cortador cortador;
+        public void agendarCorte(Agendamento corteAgendado)
+        {                                            
+            Action cortarGrama = cortador.Cortar;
+            Action<float> setAlturaLamina = cortador.setAlturaLamina;
+            TimeMonitor t = new TimeMonitor(cortarGrama, setAlturaLamina, corteAgendado);
+            Thread thr = new Thread(new ThreadStart(t.loop));
+            thr.Start();
+            Console.WriteLine("iniciou thread para realizar o corte no horario agendado");
+        }
+
         public  void setup()
         {
-
             //crio classe q fica monitorando a natureza
             float alturaPreDefinida = 10; //digamos que tu receba isso do usuario
             cortador = new Cortador();
-            cortador.alturaLamina = alturaPreDefinida;
+            cortador.setAlturaLamina(alturaPreDefinida);
 
             Action callback = cortador.Cortar;
 
