@@ -1,0 +1,1 @@
+<DataSaverOfLogd_PROk_SCG xmlns="http://schemas.datacontract.org/2004/07/WindowsFormVersion.Persistencia_de_Dados" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Log><dataEvento>2019-06-27T05:00:00-03:00</dataEvento><descricaoEvento>Grama cortada com altura: 10. Altura anterior: 16.38</descricaoEvento><tipoEvento>ltCorte</tipoEvento></Log></DataSaverOfLogd_PROk_SCG>
