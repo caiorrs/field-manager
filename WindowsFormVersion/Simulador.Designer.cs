@@ -114,7 +114,7 @@
             this.umidadeTrackBar.LargeChange = 50;
             this.umidadeTrackBar.Location = new System.Drawing.Point(8, 23);
             this.umidadeTrackBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.umidadeTrackBar.Maximum = 500;
+            this.umidadeTrackBar.Maximum = 100;
             this.umidadeTrackBar.Name = "umidadeTrackBar";
             this.umidadeTrackBar.Size = new System.Drawing.Size(313, 56);
             this.umidadeTrackBar.TabIndex = 0;
@@ -218,7 +218,9 @@
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Simulador";
             this.Text = "Simulador da natureza";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Simulador_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.VisibleChanged += new System.EventHandler(this.Simulador_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

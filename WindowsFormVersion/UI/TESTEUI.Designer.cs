@@ -100,6 +100,8 @@
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "TESTEUI";
             this.Text = "TESTEUI";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TESTEUI_FormClosed);
+            this.VisibleChanged += new System.EventHandler(this.TESTEUI_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 

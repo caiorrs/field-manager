@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormVersion.Servidor_Central;
 
 namespace WindowsFormVersion
 {
@@ -20,6 +21,8 @@ namespace WindowsFormVersion
             UpdateUmidade(Natureza.Grama.Instance.umidade);
             SetChovendo(Natureza.Clima.Instance.estaChovendo());
             UpdateTempo(Natureza.Tempo.Instance.Now.ToString());
+            Left = 100;
+            Top = 100;
             Instance = this;
         }
 
@@ -135,6 +138,20 @@ namespace WindowsFormVersion
         private void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
             Natureza.Clima.Instance.setChovendo(checkBox1.Checked);
+        }
+
+        private void Simulador_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (TESTEUI.Instance != null)
+            {
+                TESTEUI.Instance.BeginInvoke((MethodInvoker)delegate () { TESTEUI.Instance.Close(); });
+            }
+        }
+
+        private void Simulador_VisibleChanged(object sender, EventArgs e)
+        {
+            Top = 100;
+            Left = 100;
         }
     }
 }

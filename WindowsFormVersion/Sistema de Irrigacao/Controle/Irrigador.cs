@@ -10,7 +10,8 @@ namespace WindowsFormVersion.Sistema_de_Irrigacao.Controle
 {
     class Irrigador : iIrrigador
     {
-        public float UmidadeIdeal { get; set; }       
+        public float UmidadeIdeal { get; set; }
+        public float UmidadeMinima { get; set; }
 
         public void Irrigar()
         {
@@ -22,7 +23,7 @@ namespace WindowsFormVersion.Sistema_de_Irrigacao.Controle
             this.desligar();
 
             //aqui tem a parte de persistir os logs?
-            RelatorioUmidade.Instance.AddLog(Natureza.Tempo.Instance.Now, "Gramado irrigado cortada com umidade: " + UmidadeIdeal.ToString() + ". Umidade anterior: " + umi.ToString());
+            RelatorioUmidade.Instance.AddLog(Natureza.Tempo.Instance.Now, "Gramado irrigado com umidade: " + UmidadeIdeal.ToString() + ". Umidade anterior: " + umi.ToString());
         }
 
         public void ligar()

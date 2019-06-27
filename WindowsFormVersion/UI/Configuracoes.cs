@@ -13,10 +13,7 @@ namespace WindowsFormVersion
     public partial class Configuracoes : Form
     {
         private int umidadeMinima = 0;
-        private int umidadeMaxima = 0;
         private int alturaCorte = 0;
-        private String cidade = "";
-        private String tipoGrama = "";
 
         public void setUmidadeMinima(int valor)
         {
@@ -25,14 +22,6 @@ namespace WindowsFormVersion
         public int getUmidadeMinima()
         {
             return umidadeMinima;
-        }
-        public void setUmidadeMaxima(int valor)
-        {
-            umidadeMaxima = valor;
-        }
-        public int getUmidadeMaxima()
-        {
-            return umidadeMaxima;
         }
         public void setAlturaCorte(int valor)
         {
@@ -59,17 +48,6 @@ namespace WindowsFormVersion
             valorUmidadeMin.Text = value.ToString();
         }
 
-        private void UmidadeMaxConf_Scroll(object sender, EventArgs e)
-        {
-            float value = umidadeMaxConf.Value;
-            valorUmidadeMax.Text = value.ToString();
-        }
-
-        private void BtnFecharConf_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void ValorAlturaCorte_Click(object sender, EventArgs e)
         {
         }
@@ -82,27 +60,25 @@ namespace WindowsFormVersion
 
         private void BtnConfirmar_Click(object sender, EventArgs e)
         {
-            setAlturaCorte(alturaCorteConf.Value);
-            setUmidadeMaxima(umidadeMaxConf.Value);
-            setUmidadeMinima(umidadeMinConf.Value);
-        }
-
-        private void ListaCidades_Click(object sender, EventArgs e)
-        {
-            listaCidades.Items.Add("Porto Alegre");
-            listaCidades.Items.Add("Canoas");
-            listaCidades.Items.Add("Novo Hamburgo");
-        }
-
-        private void ListaGramas_Click(object sender, EventArgs e)
-        {
-            listaGramas.Items.Add("Esmeralda");
-            listaGramas.Items.Add("Bermudas");
+            alturaCorte = alturaCorteConf.Value;
+            umidadeMinima =  umidadeMinConf.Value;
+            Close();
         }
 
         private void Configuracoes_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Configuracoes_VisibleChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Configuracoes_Shown(object sender, EventArgs e)
+        {
+            alturaCorteConf.Value = alturaCorte;
+            umidadeMinConf.Value = umidadeMinima;
         }
     }
 }

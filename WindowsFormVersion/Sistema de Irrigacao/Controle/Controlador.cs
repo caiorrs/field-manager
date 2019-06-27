@@ -19,7 +19,7 @@ namespace WindowsFormVersion.Sistema_de_Irrigacao.Controle
         iIrrigacaoToCobertura iIrriToCob;
 
         private float minUmidade = -1;
-         private float maxUmidade = -1;
+        private float maxUmidade = -1;
 
         iSensorUmidade sensor;
 
@@ -34,7 +34,7 @@ namespace WindowsFormVersion.Sistema_de_Irrigacao.Controle
             return this.sensor.getLeitura();
         }
 
-        public bool setUmidadeThreshold(float umidadeMax, float umidadeMin)
+        public bool setUmidadeThreshold(float umidadeMin, float umidadeMax)
         {
             this.maxUmidade = umidadeMax;
             this.minUmidade = umidadeMin;
@@ -55,11 +55,12 @@ namespace WindowsFormVersion.Sistema_de_Irrigacao.Controle
 
             irrigador = new Irrigador();
             irrigador.UmidadeIdeal = idealUmidade;
+            irrigador.UmidadeMinima = idealUmidade / 2;
 
             Action callbackLOW = irrigador.Irrigar;
             Action callbackHIGH = iIrriToCob.umidadeAcimaLimite;
 
-            Monitorador m = new Monitorador(this.sensor,callbackLOW, callbackHIGH, minUmidade, maxUmidade);
+            Monitorador m = new Monitorador(this.sensor,callbackLOW, callbackHIGH, irrigador.UmidadeMinima, maxUmidade);
 
             Thread thr = new Thread(new ThreadStart(m.loop));
             thr.Start();
